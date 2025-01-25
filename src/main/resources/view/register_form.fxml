@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controller.RegisterFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="488.0" prefWidth="635.0" style="-fx-background-color: #CFDCF3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7a97ca" height="490.0" layoutX="-1.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="317.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3f6fc" height="86.0" layoutX="13.0" layoutY="53.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="289.0" />
+      <ImageView fitHeight="66.0" fitWidth="280.0" layoutX="17.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/HealthLink_logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="272.0" fitWidth="196.0" layoutX="66.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/MainImage.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="40.0" layoutY="156.0" text="Empowering Health , Inspiring Lives" textFill="WHITE">
+         <font>
+            <Font name="Poppins Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="465.0" text="healthlink@gmail.com" textFill="WHITE">
+         <font>
+            <Font name="Poppins Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="392.0" layoutY="54.0" text="Register Form" textFill="#1b222d">
+         <font>
+            <Font name="Poppins Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField layoutX="368.0" layoutY="127.0" prefHeight="25.0" prefWidth="220.0" promptText="employer id">
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="368.0" layoutY="175.0" prefHeight="25.0" prefWidth="220.0" promptText="email address">
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="368.0" layoutY="219.0" prefHeight="25.0" prefWidth="220.0" promptText="password">
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="368.0" layoutY="263.0" prefHeight="25.0" prefWidth="220.0" promptText="confirm password">
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font>
+      </TextField>
+      <JFXButton buttonType="RAISED" layoutX="375.0" layoutY="342.0" prefHeight="30.0" prefWidth="207.0" style="-fx-background-color: #7A97CA;" text="REGISTER" textFill="#1b222d">
+         <font>
+            <Font name="Poppins Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="379.0" layoutY="383.0" text="Already have an account? LOG IN" textFill="#1b222d">
+         <font>
+            <Font name="Poppins Light" size="12.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
