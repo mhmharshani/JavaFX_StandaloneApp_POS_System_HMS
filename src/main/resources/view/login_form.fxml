@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #CFDCF3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterFormController">
+<AnchorPane prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #CFDCF3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7a97ca" height="500.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="325.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f3f6fc" height="86.0" layoutX="17.0" layoutY="41.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="289.0" />
@@ -35,33 +35,23 @@
             <Font name="Poppins Bold" size="10.0" />
          </font>
       </Label>
-      <Label layoutX="401.0" layoutY="68.0" text="Register Form" textFill="#1b222d">
+      <Label layoutX="423.0" layoutY="68.0" text="Login Form" textFill="#1b222d">
          <font>
             <Font name="Poppins Bold" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="txtId" layoutX="377.0" layoutY="141.0" prefHeight="25.0" prefWidth="220.0" promptText="employer id" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtEmail" layoutX="377.0" layoutY="176.0" prefHeight="25.0" prefWidth="220.0" promptText="email address" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtEmail" layoutX="377.0" layoutY="189.0" prefHeight="25.0" prefWidth="220.0" promptText="email address" style="-fx-background-color: #F3F6FC;">
-         <font>
-            <Font name="Poppins Regular" size="12.0" />
-         </font>
-      </TextField>
-      <JFXButton buttonType="RAISED" layoutX="378.0" layoutY="393.0" onAction="#btnRegisterOnAction" prefHeight="30.0" prefWidth="220.0" style="-fx-background-color: #7A97CA;" text="REGISTER" textFill="#1b222d">
+      <JFXButton buttonType="RAISED" layoutX="377.0" layoutY="330.0" onAction="#btnLoginOnAction" prefHeight="30.0" prefWidth="220.0" style="-fx-background-color: #7A97CA;" text="LOGIN" textFill="#1b222d">
          <font>
             <Font name="Poppins Bold" size="14.0" />
          </font>
       </JFXButton>
-      <Hyperlink layoutX="395.0" layoutY="337.0" onAction="#linkLoginOnAction" text="Already have an account? LOG IN" />
-      <PasswordField fx:id="txtPassword" layoutX="378.0" layoutY="233.0" prefHeight="25.0" prefWidth="220.0" promptText="password" style="-fx-background-color: #F3F6FC;">
-         <font>
-            <Font name="Poppins Regular" size="12.0" />
-         </font>
-      </PasswordField>
-      <PasswordField fx:id="txtCPassword" layoutX="378.0" layoutY="279.0" prefHeight="25.0" prefWidth="220.0" promptText="confirm password" style="-fx-background-color: #F3F6FC;">
+      <Hyperlink layoutX="403.0" layoutY="280.0" onAction="#linkRegisterOnAction" text="Are you a new user? REGISTER" />
+      <PasswordField fx:id="txtPassword" layoutX="378.0" layoutY="228.0" prefHeight="25.0" prefWidth="220.0" promptText="password" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>

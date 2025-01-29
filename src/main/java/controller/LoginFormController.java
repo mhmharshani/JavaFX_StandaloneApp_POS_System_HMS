@@ -5,27 +5,21 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class RegisterFormController {
-
-    @FXML
-    private PasswordField txtCPassword;
+public class LoginFormController {
 
     @FXML
     private TextField txtEmail;
 
     @FXML
-    private TextField txtId;
-
-    @FXML
     private PasswordField txtPassword;
 
     @FXML
-    void btnRegisterOnAction(ActionEvent event) {
+    void btnLoginOnAction(ActionEvent event) {
 
     }
 
     @FXML
-    void linkLoginOnAction(ActionEvent event) {
+    void linkRegisterOnAction(ActionEvent event) {
 
     }
 
