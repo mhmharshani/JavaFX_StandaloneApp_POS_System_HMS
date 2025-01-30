@@ -243,7 +243,7 @@
                   <Font name="Poppins Bold" size="12.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="80.0" layoutX="8.0" layoutY="22.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="151.0" />
+            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="80.0" layoutX="8.0" layoutY="27.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="151.0" />
             <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="201.0" layoutX="334.0" layoutY="274.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="307.0" />
             <Label layoutX="347.0" layoutY="292.0" text="To-Do List" textFill="#1b222d">
                <font>
@@ -312,35 +312,35 @@
                   <Font name="Poppins Bold" size="12.0" />
                </font>
             </JFXButton>
-            <Label layoutX="21.0" layoutY="39.0" text="INDOOR PATIENTS" textFill="#cfdcf3">
+            <Label layoutX="21.0" layoutY="44.0" text="INDOOR PATIENTS" textFill="#cfdcf3">
                <font>
                   <Font name="Poppins Bold" size="14.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="80.0" layoutX="162.0" layoutY="24.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="151.0" />
-            <Label layoutX="168.0" layoutY="39.0" text="OUTDOOR PATIENTS" textFill="#cfdcf3">
+            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="80.0" layoutX="162.0" layoutY="29.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="151.0" />
+            <Label layoutX="168.0" layoutY="44.0" text="OUTDOOR PATIENTS" textFill="#cfdcf3">
                <font>
                   <Font name="Poppins Bold" size="14.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="80.0" layoutX="316.0" layoutY="24.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="151.0" />
-            <Label layoutX="327.0" layoutY="39.0" text="NO. OF PHYSICIAN" textFill="#cfdcf3">
+            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="80.0" layoutX="316.0" layoutY="29.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="151.0" />
+            <Label layoutX="327.0" layoutY="44.0" text="NO. OF PHYSICIAN" textFill="#cfdcf3">
                <font>
                   <Font name="Poppins Bold" size="14.0" />
                </font>
             </Label>
             <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#f3f6fc" height="129.0" layoutX="8.0" layoutY="115.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="458.0" />
-            <Label fx:id="lblIndoorPCount" layoutX="71.0" layoutY="63.0" prefHeight="28.0" prefWidth="26.0" text="20" textFill="#1b222d">
+            <Label fx:id="lblIndoorPCount" layoutX="71.0" layoutY="68.0" prefHeight="28.0" prefWidth="26.0" text="20" textFill="#1b222d">
                <font>
                   <Font name="Poppins Regular" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblOutdoorPCount" layoutX="224.0" layoutY="63.0" prefHeight="28.0" prefWidth="26.0" text="25" textFill="#1b222d">
+            <Label fx:id="lblOutdoorPCount" layoutX="224.0" layoutY="68.0" prefHeight="28.0" prefWidth="26.0" text="25" textFill="#1b222d">
                <font>
                   <Font name="Poppins Regular" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblPhysicianCount" layoutX="378.0" layoutY="63.0" prefHeight="28.0" prefWidth="26.0" text="65" textFill="#1b222d">
+            <Label fx:id="lblPhysicianCount" layoutX="378.0" layoutY="68.0" prefHeight="28.0" prefWidth="26.0" text="65" textFill="#1b222d">
                <font>
                   <Font name="Poppins Regular" size="18.0" />
                </font>
@@ -395,6 +395,11 @@
                   <Font name="Poppins Light" size="12.0" />
                </font>
             </TextField>
+            <Label alignment="CENTER" layoutX="9.0" layoutY="4.0" prefHeight="17.0" prefWidth="80.0" style="-fx-background-color: #7A97CA;" text="Dashboard &gt;" textAlignment="CENTER" textFill="#cfdcf3">
+               <font>
+                  <Font name="Poppins Bold" size="11.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Label layoutX="453.0" layoutY="20.0" text=" Today," textFill="#cfdcf3">

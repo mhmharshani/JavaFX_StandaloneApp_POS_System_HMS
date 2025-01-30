@@ -13,7 +13,7 @@ public class DBConnection {
     private Connection connection;
 
     private DBConnection() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306/thogakage";
+        String url = "jdbc:mysql://localhost:3306/hospital_management_system_db";
         String userName ="root";
         String password="199161500318";
         connection=DriverManager.getConnection(url,userName,password);
