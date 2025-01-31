@@ -1,4 +1,4 @@
-package controller;
+package controller.appointment;
 
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
@@ -58,13 +58,16 @@ public class AppointmentFormController {
     private TableView tblAppointment;
 
     @FXML
-    private TextField txtDocName;
+    private JFXComboBox<?> cmbDoctorId;
 
     @FXML
-    private TextField txtPhoneOrNIC;
+    private JFXComboBox<?> cmbPatientId;
 
     @FXML
     private TextField txtSearch;
+
+    @FXML
+    private Label lblAppointId;
 
     @FXML
     void btnBook(ActionEvent event) {

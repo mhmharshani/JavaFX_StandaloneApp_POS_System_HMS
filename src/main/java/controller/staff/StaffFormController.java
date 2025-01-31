@@ -1,12 +1,24 @@
 package controller.staff;
 
+import controller.patient.PatientController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.Employee;
+import model.Patient;
 
-public class StaffFormController {
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class StaffFormController implements Initializable {
 
     @FXML
     private TableColumn colAddress;
@@ -62,14 +74,50 @@ public class StaffFormController {
     @FXML
     private TextField txtSearch;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtId.setText(new StaffController().nextId());
+    }
+
     @FXML
     void btnAddMemberOnAction(ActionEvent event) {
-
+        Employee employee = new Employee(
+                txtId.getText(),
+                txtName.getText(),
+                txtGender.getText(),
+                txtAddress.getText(),
+                txtPhone.getText(),
+                txtDesignation.getText(),
+                txtQualifications.getText(),
+                Double.parseDouble(txtSalary.getText())
+        );
+        boolean isAdded = new StaffController().addEmployee(employee);
+        Alert alert = isAdded ? (new Alert(Alert.AlertType.CONFIRMATION, "Added Success !!")) : (new Alert(Alert.AlertType.ERROR, "Added Failed !!"));
+        alert.show();
+        if (isAdded){
+            txtId.setText(new StaffController().nextId());
+            txtName.setText("");
+            txtGender.setText("");
+            txtAddress.setText("");
+            txtPhone.setText("");
+            txtDesignation.setText("");
+            txtQualifications.setText("");
+            txtSalary.setText("");
+        }
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-
+        Employee employee = new StaffController().searchEmployeeById(txtSearch.getText());
+        if (employee !=null){
+            boolean isDeleted = new StaffController().deleteEmployee(txtSearch.getText());
+            if(isDeleted){
+                txtId.setText(new StaffController().nextId());
+            }
+        }
+        else {
+            new Alert(Alert.AlertType.ERROR, "No Employee Found !!").show();
+        }
     }
 
     @FXML
@@ -79,12 +127,54 @@ public class StaffFormController {
 
     @FXML
     void btnSearchOnAction(ActionEvent event) {
-
+        Employee employee = new StaffController().searchEmployeeById(txtSearch.getText());
+        if (employee!=null){
+            loadTable(employee);
+        }
+        else {
+            new Alert(Alert.AlertType.ERROR,"No Employee Found !!").show();
+        }
     }
 
     @FXML
     void btnShowAllOnAction(ActionEvent event) {
+        loadTable();
 
+    }
+
+    public void loadTable(){
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colPhone.setCellValueFactory(new PropertyValueFactory<>("phoneNo"));
+        colDesignation.setCellValueFactory(new PropertyValueFactory<>("designation"));
+        colQualification.setCellValueFactory(new PropertyValueFactory<>("qualification"));
+        colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
+
+        List<Employee> employeeArrayList = new StaffController().getAll();
+        ObservableList<Employee> employeeObservableList = FXCollections.observableArrayList();
+        employeeArrayList.forEach(patient -> {
+            employeeObservableList.add(patient);
+        });
+
+        tblStaff.setItems(employeeObservableList);
+    }
+
+    public void loadTable(Employee employee){
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colPhone.setCellValueFactory(new PropertyValueFactory<>("phoneNo"));
+        colDesignation.setCellValueFactory(new PropertyValueFactory<>("designation"));
+        colQualification.setCellValueFactory(new PropertyValueFactory<>("qualification"));
+        colSalary.setCellValueFactory(new PropertyValueFactory<>("salary"));
+
+        ObservableList<Employee> employeeObservableList = FXCollections.observableArrayList();
+        employeeObservableList.add(employee);
+
+        tblStaff.setItems(employeeObservableList);
     }
 
 }

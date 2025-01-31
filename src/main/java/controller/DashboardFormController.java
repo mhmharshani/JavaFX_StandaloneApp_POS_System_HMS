@@ -48,16 +48,17 @@ public class DashboardFormController implements Initializable {
 
         setDateAndTime();
 
-//        URL resource = this.getClass().getResource("/view/main_form.fxml");
-//        assert  resource != null;
-//        Parent load = null;
-//        try {
-//            load = FXMLLoader.load(resource);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        loadFormContent.getChildren().clear();
-//        loadFormContent.getChildren().add(load);
+        //-----------------Load Main Form -------------------------------------------
+        URL resource = this.getClass().getResource("/view/main_form.fxml");
+        assert  resource != null;
+        Parent load = null;
+        try {
+            load = FXMLLoader.load(resource);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        loadFormContent.getChildren().clear();
+        loadFormContent.getChildren().add(load);
 
 
     }
