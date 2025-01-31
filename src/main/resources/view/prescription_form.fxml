@@ -32,7 +32,7 @@
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDiagnosis" layoutX="150.0" layoutY="191.0" mouseTransparent="true" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtDiagnosis" layoutX="150.0" layoutY="191.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
@@ -54,7 +54,7 @@
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="txtSearch" layoutX="174.0" layoutY="57.0" mouseTransparent="true" prefHeight="28.0" prefWidth="157.0" promptText="Search" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtSearch" layoutX="174.0" layoutY="57.0" prefHeight="28.0" prefWidth="157.0" promptText="Search" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
@@ -91,17 +91,17 @@
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDocId" editable="false" layoutX="426.0" layoutY="142.0" mouseTransparent="true" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtDocId" editable="false" layoutX="426.0" layoutY="142.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtPatientId" editable="false" layoutX="149.0" layoutY="142.0" mouseTransparent="true" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtPatientId" editable="false" layoutX="149.0" layoutY="142.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtMedicine" layoutX="150.0" layoutY="231.0" mouseTransparent="true" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtMedicine" layoutX="150.0" layoutY="231.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
@@ -111,7 +111,7 @@
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDosage" layoutX="426.0" layoutY="193.0" mouseTransparent="true" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtDosage" layoutX="426.0" layoutY="193.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
@@ -121,7 +121,7 @@
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDuration" layoutX="426.0" layoutY="233.0" mouseTransparent="true" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtDuration" layoutX="426.0" layoutY="233.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>

@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXListCell?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -23,66 +19,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7a97ca" height="55.0" layoutX="169.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="650.0" />
-      <AnchorPane fx:id="loadFormContent" layoutX="168.0" layoutY="55.0" prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #CFDCF3;">
-         <children>
-            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="201.0" layoutX="20.0" layoutY="274.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="293.0" />
-            <Label layoutX="34.0" layoutY="292.0" text="Meetings" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Bold" size="12.0" />
-               </font>
-            </Label>
-            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="80.0" layoutX="20.0" layoutY="22.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="144.0" />
-            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="201.0" layoutX="335.0" layoutY="274.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="293.0" />
-            <Label layoutX="343.0" layoutY="292.0" text="To-Do List" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Bold" size="12.0" />
-               </font>
-            </Label>
-            <JFXButton layoutX="185.0" layoutY="286.0" prefHeight="28.0" prefWidth="119.0" style="-fx-background-color: #8857F2;" text="Add Meeting" textFill="#1b222d">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/icon-add-new.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Poppins Bold" size="12.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="517.0" layoutY="286.0" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #8857F2;" text="Add Task" textFill="#1b222d">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/icon-add-new.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Poppins Bold" size="12.0" />
-               </font>
-            </JFXButton>
-            <Label layoutX="20.0" layoutY="250.0" text="TODAY" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="573.0" layoutY="250.0" text="See All" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Regular" size="12.0" />
-               </font>
-            </Label>
-            <CheckBox layoutX="365.0" layoutY="331.0" mnemonicParsing="false" text="Task 01" />
-            <CheckBox layoutX="365.0" layoutY="358.0" mnemonicParsing="false" text="Task 02" />
-            <CheckBox layoutX="365.0" layoutY="386.0" mnemonicParsing="false" text="Task 03" />
-            <CheckBox layoutX="365.0" layoutY="414.0" mnemonicParsing="false" text="Task 04" />
-            <CheckBox layoutX="365.0" layoutY="442.0" mnemonicParsing="false" text="Task 05" />
-            <RadioButton layoutX="44.0" layoutY="358.0" mnemonicParsing="false" text="Time : Meeting 02" />
-            <RadioButton layoutX="44.0" layoutY="386.0" mnemonicParsing="false" text="Time : Meeting 03" />
-            <RadioButton layoutX="44.0" layoutY="414.0" mnemonicParsing="false" text="Time : Meeting 04" />
-            <RadioButton layoutX="44.0" layoutY="442.0" mnemonicParsing="false" text="Time : Meeting 05" />
-            <RadioButton layoutX="44.0" layoutY="331.0" mnemonicParsing="false" text="Time : Meeting 01" />
-         </children></AnchorPane>
+      <AnchorPane fx:id="loadFormContent" layoutX="169.0" layoutY="55.0" prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #CFDCF3;" />
       <JFXButton alignment="BASELINE_LEFT" layoutX="18.0" layoutY="62.0" onAction="#btnDashboardOnAction" prefHeight="32.0" prefWidth="133.0" style="-fx-background-color: #CFDCF3;" text="Dashboard" textFill="#1b222d">
          <font>
             <Font name="Poppins SemiBold" size="12.0" />
@@ -143,7 +80,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton alignment="BASELINE_LEFT" layoutX="18.0" layoutY="517.0" onAction="#btnLogoutOnAction" prefHeight="32.0" prefWidth="133.0" style="-fx-background-color: #CFDCF3;" text="Logout" textFill="#1b222d">
+      <JFXButton fx:id="btnLogout" alignment="BASELINE_LEFT" layoutX="18.0" layoutY="517.0" onAction="#btnLogoutOnAction" prefHeight="32.0" prefWidth="133.0" style="-fx-background-color: #CFDCF3;" text="Logout" textFill="#1b222d">
          <font>
             <Font name="Poppins SemiBold" size="12.0" />
          </font>
@@ -191,17 +128,17 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <TextField fx:id="txtSearch" layoutX="185.0" layoutY="15.0" mouseTransparent="true" prefHeight="25.0" prefWidth="180.0" promptText="Search" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtSearch" layoutX="185.0" layoutY="15.0" prefHeight="25.0" prefWidth="180.0" promptText="Search" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <Label fx:id="lblTime" layoutX="407.0" layoutY="20.0" text="10:50 AM " textFill="#cfdcf3">
+      <Label fx:id="lblTime" layoutX="407.0" layoutY="20.0" text="10:50:00 " textFill="#cfdcf3">
          <font>
             <Font name="Poppins Bold" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="lblDate" layoutX="493.0" layoutY="20.0" text="11 jAN 2025" textFill="#cfdcf3">
+      <Label fx:id="lblDate" layoutX="489.0" layoutY="20.0" text="30-01-2025" textFill="#cfdcf3">
          <font>
             <Font name="Poppins Bold" size="10.0" />
          </font>
@@ -235,174 +172,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <AnchorPane fx:id="loadFormContent1" layoutX="169.0" layoutY="55.0" prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #CFDCF3;">
-         <children>
-            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="201.0" layoutX="12.0" layoutY="274.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="307.0" />
-            <Label layoutX="26.0" layoutY="292.0" text="Meetings" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Bold" size="12.0" />
-               </font>
-            </Label>
-            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="80.0" layoutX="8.0" layoutY="27.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="151.0" />
-            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="201.0" layoutX="334.0" layoutY="274.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="307.0" />
-            <Label layoutX="347.0" layoutY="292.0" text="To-Do List" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Bold" size="12.0" />
-               </font>
-            </Label>
-            <JFXButton layoutX="187.0" layoutY="286.0" onAction="#btnAddMeetingOnAction" prefHeight="28.0" prefWidth="119.0" style="-fx-background-color: #8857F2;" text="Add Meeting" textFill="#1b222d">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/icon-add-new.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Poppins Bold" size="12.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="530.0" layoutY="286.0" onAction="#btnAddTaskOnAction" prefHeight="28.0" prefWidth="99.0" style="-fx-background-color: #8857F2;" text="Add Task" textFill="#1b222d">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/icon-add-new.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Poppins Bold" size="12.0" />
-               </font>
-            </JFXButton>
-            <Label layoutX="12.0" layoutY="253.0" text="TODAY" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="597.0" layoutY="252.0" text="See All" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Regular" size="12.0" />
-               </font>
-            </Label>
-            <CheckBox fx:id="checkTask1" layoutX="362.0" layoutY="331.0" mnemonicParsing="false" onAction="#checkTask1OnAction" text="Task 01" />
-            <CheckBox layoutX="362.0" layoutY="358.0" mnemonicParsing="false" text="Task 02" />
-            <CheckBox layoutX="362.0" layoutY="386.0" mnemonicParsing="false" text="Task 03" />
-            <CheckBox layoutX="362.0" layoutY="414.0" mnemonicParsing="false" text="Task 04" />
-            <CheckBox layoutX="362.0" layoutY="442.0" mnemonicParsing="false" text="Task 05" />
-            <RadioButton layoutX="36.0" layoutY="358.0" mnemonicParsing="false" text="Time : Meeting 02" />
-            <RadioButton layoutX="36.0" layoutY="386.0" mnemonicParsing="false" text="Time : Meeting 03" />
-            <RadioButton layoutX="36.0" layoutY="414.0" mnemonicParsing="false" text="Time : Meeting 04" />
-            <RadioButton layoutX="36.0" layoutY="442.0" mnemonicParsing="false" text="Time : Meeting 05" />
-            <RadioButton fx:id="rbtnMeeting1" layoutX="36.0" layoutY="331.0" mnemonicParsing="false" onAction="#rbtnMeeting1OnAction" text="Time : Meeting 01" />
-            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#7dd4ac" height="221.0" layoutX="474.0" layoutY="23.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="168.0" />
-            <Label layoutX="491.0" layoutY="31.0" text="IMPORTANT MESSAGES" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Bold" size="12.0" />
-               </font>
-            </Label>
-            <JFXButton layoutX="519.0" layoutY="210.0" onAction="#btnSendOnAction" prefHeight="28.0" prefWidth="74.0" style="-fx-background-color: #8857F2;" text="SEND" textFill="#1b222d">
-               <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/icon-msg.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <font>
-                  <Font name="Poppins Bold" size="12.0" />
-               </font>
-            </JFXButton>
-            <Label layoutX="21.0" layoutY="44.0" text="INDOOR PATIENTS" textFill="#cfdcf3">
-               <font>
-                  <Font name="Poppins Bold" size="14.0" />
-               </font>
-            </Label>
-            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="80.0" layoutX="162.0" layoutY="29.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="151.0" />
-            <Label layoutX="168.0" layoutY="44.0" text="OUTDOOR PATIENTS" textFill="#cfdcf3">
-               <font>
-                  <Font name="Poppins Bold" size="14.0" />
-               </font>
-            </Label>
-            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#9fb9e6" height="80.0" layoutX="316.0" layoutY="29.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="151.0" />
-            <Label layoutX="327.0" layoutY="44.0" text="NO. OF PHYSICIAN" textFill="#cfdcf3">
-               <font>
-                  <Font name="Poppins Bold" size="14.0" />
-               </font>
-            </Label>
-            <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#f3f6fc" height="129.0" layoutX="8.0" layoutY="115.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="0.0" width="458.0" />
-            <Label fx:id="lblIndoorPCount" layoutX="71.0" layoutY="68.0" prefHeight="28.0" prefWidth="26.0" text="20" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Regular" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblOutdoorPCount" layoutX="224.0" layoutY="68.0" prefHeight="28.0" prefWidth="26.0" text="25" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Regular" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblPhysicianCount" layoutX="378.0" layoutY="68.0" prefHeight="28.0" prefWidth="26.0" text="65" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Regular" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="21.0" layoutY="125.0" text="TODAY'S SESSIONS" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Bold" size="12.0" />
-               </font>
-            </Label>
-            <Label layoutX="414.0" layoutY="125.0" text="See All" textFill="#1b222d">
-               <font>
-                  <Font name="Poppins Regular" size="12.0" />
-               </font>
-            </Label>
-            <JFXListCell fx:id="listSession1" layoutX="53.0" layoutY="153.0" prefHeight="15.0" prefWidth="113.0" style="-fx-background-color: #CFDCF3;" text="Session 01">
-               <font>
-                  <Font name="Poppins Regular" size="12.0" />
-               </font>
-            </JFXListCell>
-            <JFXListCell fx:id="listSession2" layoutX="179.0" layoutY="153.0" prefHeight="15.0" prefWidth="113.0" style="-fx-background-color: #CFDCF3;" text="Session 02">
-               <font>
-                  <Font name="Poppins Regular" size="12.0" />
-               </font>
-            </JFXListCell>
-            <JFXListCell fx:id="listSession3" layoutX="306.0" layoutY="153.0" prefHeight="15.0" prefWidth="113.0" style="-fx-background-color: #CFDCF3;" text="Session 03">
-               <font>
-                  <Font name="Poppins Regular" size="12.0" />
-               </font>
-            </JFXListCell>
-            <JFXListCell fx:id="listSession4" layoutX="53.0" layoutY="197.0" prefHeight="15.0" prefWidth="113.0" style="-fx-background-color: #CFDCF3;" text="Session 04">
-               <font>
-                  <Font name="Poppins Regular" size="12.0" />
-               </font>
-            </JFXListCell>
-            <JFXListCell fx:id="listSession5" layoutX="179.0" layoutY="197.0" prefHeight="15.0" prefWidth="113.0" style="-fx-background-color: #CFDCF3;" text="Session 05">
-               <font>
-                  <Font name="Poppins Regular" size="12.0" />
-               </font>
-            </JFXListCell>
-            <JFXListCell fx:id="listSession6" layoutX="306.0" layoutY="197.0" prefHeight="15.0" prefWidth="113.0" style="-fx-background-color: #CFDCF3;" text="Session 06">
-               <font>
-                  <Font name="Poppins Regular" size="12.0" />
-               </font>
-            </JFXListCell>
-            <TextArea fx:id="txtAreaMessage" disable="true" layoutX="487.0" layoutY="54.0" prefHeight="121.0" prefWidth="144.0" style="-fx-background-color: #f3f6fc;">
-               <font>
-                  <Font name="Poppins Regular" size="12.0" />
-               </font>
-            </TextArea>
-            <TextField fx:id="txtMessage" layoutX="489.0" layoutY="179.0" mouseTransparent="true" prefHeight="25.0" prefWidth="140.0" promptText="Message" style="-fx-background-color: #F3F6FC;">
-               <font>
-                  <Font name="Poppins Light" size="12.0" />
-               </font>
-            </TextField>
-            <Label alignment="CENTER" layoutX="9.0" layoutY="4.0" prefHeight="17.0" prefWidth="80.0" style="-fx-background-color: #7A97CA;" text="Dashboard &gt;" textAlignment="CENTER" textFill="#cfdcf3">
-               <font>
-                  <Font name="Poppins Bold" size="11.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <Label layoutX="453.0" layoutY="20.0" text=" Today," textFill="#cfdcf3">
+      <Label layoutX="450.0" layoutY="20.0" text=" Today," textFill="#cfdcf3">
          <font>
             <Font name="Poppins Bold" size="10.0" />
          </font>

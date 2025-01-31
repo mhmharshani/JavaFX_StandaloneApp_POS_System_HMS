@@ -1,0 +1,22 @@
+package controller.staff;
+
+import model.Employee;
+
+import java.util.List;
+
+public interface StaffService {
+
+    boolean addEmployee(Employee employee);
+
+    boolean updateEmployee(Employee employee);
+
+    Employee searchEmployeeByName(String name);
+
+    Employee searchEmployeeByPhoneNo(String phoneNo);
+
+    Employee searchEmployeeById(String id);
+
+    boolean deleteEmployee(String id);
+
+    List<Employee> getAll();
+}

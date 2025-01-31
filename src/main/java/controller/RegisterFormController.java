@@ -1,11 +1,13 @@
 package controller;
 
+import com.jfoenix.controls.JFXButton;
 import db.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -19,6 +21,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class RegisterFormController {
+
+    @FXML
+    private JFXButton btnRegister;
+
+    @FXML
+    private Hyperlink linkLogin;
 
     @FXML
     private TextField txtUserName;
@@ -53,10 +61,11 @@ public class RegisterFormController {
                 PreparedStatement pstm = connection.prepareStatement(SQL);
                 pstm.setString(1,txtId.getText());
                 pstm.setString(2,user.getName());
-                pstm.setString(3, user.getEmail());
+                pstm.setString(3,user.getEmail());
                 pstm.setString(4,basicTextEncryptor.encrypt(user.getPassword()));
                 pstm.executeUpdate();
 
+                btnRegister.getScene().getWindow().hide();
                 Stage stage = new Stage();
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/login_form.fxml"))));
                 stage.show();
@@ -74,6 +83,7 @@ public class RegisterFormController {
 
     @FXML
     void linkLoginOnAction(ActionEvent event) throws IOException {
+        linkLogin.getScene().getWindow().hide();
         Stage stage = new Stage();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/login_form.fxml"))));
         stage.show();

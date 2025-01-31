@@ -1,11 +1,13 @@
 package controller;
 
+import com.jfoenix.controls.JFXButton;
 import db.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -18,6 +20,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginFormController {
+
+    @FXML
+    private JFXButton btnLogin;
+
+    @FXML
+    private Hyperlink linkRegister;
 
     @FXML
     private TextField txtEmail;
@@ -45,6 +53,7 @@ public class LoginFormController {
             System.out.println(user);
 
             if(user.getPassword().equals(txtPassword.getText())){
+                btnLogin.getScene().getWindow().hide();
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"))));
                 stage.show();
             }
@@ -61,6 +70,7 @@ public class LoginFormController {
 
     @FXML
     void linkRegisterOnAction(ActionEvent event) throws IOException {
+        linkRegister.getScene().getWindow().hide();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/register_form.fxml"))));
         stage.show();
     }
