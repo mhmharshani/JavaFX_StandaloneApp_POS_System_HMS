@@ -195,7 +195,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" layoutX="316.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
+      <Button alignment="CENTER" layoutX="316.0" layoutY="114.0" mnemonicParsing="false" onAction="#btnAddPatientOnAction" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>

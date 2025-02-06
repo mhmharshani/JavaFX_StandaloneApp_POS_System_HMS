@@ -2,15 +2,24 @@ package controller.appointment;
 
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
+import controller.DashboardFormController;
+import controller.doctor.DoctorController;
+import controller.patient.PatientController;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import model.Doctor;
 
-public class AppointmentFormController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class AppointmentFormController implements Initializable {
 
     @FXML
     private JFXCheckBox checkIndoor;
@@ -69,9 +78,35 @@ public class AppointmentFormController {
     @FXML
     private Label lblAppointId;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        lblAppointId.setText(new AppointmentController().nextId());
+        loadPatientId();
+        loadDoctorId();
+        loadSpecialityTypes();
+
+    }
+
     @FXML
     void btnBook(ActionEvent event) {
+//        Doctor doctor = new Doctor(
+//                txtId.getText(),
+//                txtSpeciality.getText(),
+//                txtAvailability.getText(),
+//                txtEmpId.getText()
+//        );
+//        boolean isAdded = new DoctorController().addDoctor(doctor);
+//        Alert alert = isAdded ? (new Alert(Alert.AlertType.CONFIRMATION, "Added Success !!")) : (new Alert(Alert.AlertType.ERROR, "Added Failed !!"));
+//        alert.show();
+//        if (isAdded){
+//            txtId.setText(new DoctorController().nextId());
+//            txtSpeciality.setText("");
+//            txtAvailability.setText("");
+//            txtEmpId.setText("");
+//        }
 
+        //lblAppointId.setText(new AppointmentController().nextId());
     }
 
     @FXML
@@ -91,6 +126,19 @@ public class AppointmentFormController {
 
     @FXML
     void btnPayNowOnAction(ActionEvent event) {
+
+        //-----------------Load Payment Form -------------------------------------------
+//        URL resource = this.getClass().getResource("/view/payments_form.fxml");
+//        assert  resource != null;
+//        Parent load = null;
+//        try {
+//            load = FXMLLoader.load(resource);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        AnchorPane loadFormContent = new DashboardFormController().getLoadFormContent();
+//        loadFormContent.getChildren().clear();
+//        loadFormContent.getChildren().add(load);
 
     }
 
@@ -113,5 +161,27 @@ public class AppointmentFormController {
     void btnShowAppointmentOnAction(ActionEvent event) {
 
     }
+
+    @FXML
+    void btnAddPatientOnAction(ActionEvent event) throws IOException{
+
+        //-----------------Load Patient Form -------------------------------------------
+//        new DashboardFormController().btnPatientOnAction(new ActionEvent());
+
+    }
+
+
+    private void loadPatientId(){
+        cmbPatientId.setItems(new PatientController().getPatientId());
+    }
+
+    private void loadDoctorId(){
+        cmbDoctorId.setItems(new DoctorController().getDoctorId());
+    }
+
+    private void loadSpecialityTypes(){
+        cmbSpeciality.setItems(new DoctorController().getSpeciality());
+    }
+
 
 }

@@ -15,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lombok.Getter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -37,6 +38,7 @@ public class DashboardFormController implements Initializable {
     @FXML
     private Label lblUserName;
 
+    @Getter
     @FXML
     private AnchorPane loadFormContent;
 
@@ -59,7 +61,6 @@ public class DashboardFormController implements Initializable {
         }
         loadFormContent.getChildren().clear();
         loadFormContent.getChildren().add(load);
-
 
     }
 
@@ -140,7 +141,7 @@ public class DashboardFormController implements Initializable {
     }
 
     @FXML
-    void btnPatientOnAction(ActionEvent event) throws IOException {
+    public void btnPatientOnAction(ActionEvent event) throws IOException {
         URL resource = this.getClass().getResource("/view/patient_form.fxml");
         assert  resource != null;
         Parent load = FXMLLoader.load(resource);
@@ -218,7 +219,6 @@ public class DashboardFormController implements Initializable {
         loadFormContent.getChildren().clear();
         loadFormContent.getChildren().add(load);
     }
-
 
 
 }

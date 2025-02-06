@@ -1,9 +1,12 @@
 package controller.doctor;
 
 import db.DBConnection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import model.Doctor;
-import model.Employee;
+import model.DoctorSession;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -135,4 +138,124 @@ public class DoctorController implements DoctorService {
 
         return doctorArrayList;
     }
+
+    public ObservableList getDoctorId(){
+
+        ObservableList<String> doctorIds = FXCollections.observableArrayList();
+        List<Doctor> all = getAll();
+
+        all.forEach(doctor -> {
+            doctorIds.add(doctor.getId());
+        });
+        return doctorIds;
+    }
+
+    public ObservableList getSpeciality(){
+
+        ObservableList<String> specialityTypes = FXCollections.observableArrayList();
+        List<Doctor> all = getAll();
+
+        all.forEach(doctor -> {
+            specialityTypes.add(doctor.getSpeciality());
+        });
+        return specialityTypes;
+    }
+
+    //-----------------Doctor Session Controller--------------------------------------
+
+    public boolean addSession(DoctorSession doctorSession) {
+        String SQL = "INSERT INTO doctor_session VALUES (?,?,?,?,?,?,?)";
+
+        try {
+            PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
+            pstm.setString(1, doctorSession.getId());
+            pstm.setString(2, doctorSession.getName());
+            pstm.setDate(3, java.sql.Date.valueOf(doctorSession.getDate()));
+            pstm.setTime(4, java.sql.Time.valueOf(doctorSession.getTime()));
+            pstm.setString(5, doctorSession.getNumberLimit());
+            pstm.setString(6, doctorSession.getStatus());
+            pstm.setString(7, doctorSession.getDoctorId());
+            pstm.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return true;
+    }
+
+    public List<DoctorSession> getAllSessions() {
+        ArrayList<DoctorSession> doctorSessionArrayList = new ArrayList<>();
+        try {
+
+            ResultSet resultSet = DBConnection.getInstance().getConnection().createStatement().executeQuery("SELECT * FROM doctor_session");
+            while(resultSet.next()){
+                DoctorSession doctorSession = new DoctorSession(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7)
+                );
+                doctorSessionArrayList.add(doctorSession);
+            }
+
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+
+        return doctorSessionArrayList;
+    }
+
+    public String nextSessionId(){
+        List<DoctorSession> all = getAllSessions();
+        ArrayList<String> sessionIds = new ArrayList<>();
+        all.forEach( doctorSession ->{
+            sessionIds.add((doctorSession.getId().split("#"))[1]);
+        });
+
+        int id;
+        int max = 0;
+
+        if(!sessionIds.isEmpty()){
+            for(int i=0;i< sessionIds.size();i++){
+                id=Integer.parseInt(sessionIds.get(i));
+                if(max<id){
+                    max=id;
+                }
+            }
+            max++;
+        }
+        else {
+            return "HLS#000001";
+        }
+        return String.format("HLS#%06d",max);
+    }
+
+    public ObservableList getSessionNames(){
+
+        ObservableList<String> sessionNames = FXCollections.observableArrayList();
+        sessionNames.add("Late Night Session(1-4AM)");
+        sessionNames.add("Early Morning Session(4-7AM)");
+        sessionNames.add("Morning Session(7-10AM)");
+        sessionNames.add("Mid-day Session(10AM-1PM)");
+        sessionNames.add("Evening Session(1-7PM)");
+        sessionNames.add("Night Session(7-12PM)");
+
+        return sessionNames;
+
+    }
+
+    public ObservableList getSessionStatus(){
+
+        ObservableList<String> sessionStatus = FXCollections.observableArrayList();
+        sessionStatus.add("Active");
+        sessionStatus.add("Cancel");
+        sessionStatus.add("Pending");
+
+        return sessionStatus;
+
+    }
+
 }

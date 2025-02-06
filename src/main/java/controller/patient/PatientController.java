@@ -185,5 +185,16 @@ public class PatientController implements PatientService{
         return patientArrayList;
     }
 
+    public ObservableList getPatientId(){
+
+        ObservableList<String> patientIds = FXCollections.observableArrayList();
+        List<Patient> all = getAll();
+
+        all.forEach(patient -> {
+            patientIds.add(patient.getId());
+        });
+        return patientIds;
+    }
+
 
 }

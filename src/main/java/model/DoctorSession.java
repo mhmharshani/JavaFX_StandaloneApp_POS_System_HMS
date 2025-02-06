@@ -4,23 +4,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import java.util.Date;
-import java.util.Timer;
-
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
 
-public class Appointment {
+public class DoctorSession {
 
     private String id;
-    private Date date;
+    private String name;
+    private String date;
     private String time;
-    private Integer number;
+    private String numberLimit;
     private String status;
     private String doctorId;
-    private String patientId;
-
 }
