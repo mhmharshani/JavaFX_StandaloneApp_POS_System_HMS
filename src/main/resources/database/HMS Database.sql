@@ -68,6 +68,24 @@ DESC doctor;
 
 SELECT * FROM doctor;
 
+-- Creating doctor_session table 
+
+CREATE TABLE doctor_session (
+	session_id VARCHAR(10),
+    `name` VARCHAR(30) NOT NULL,
+    `date` DATE NOT NULL,
+    `time` TIME NOT NULL,
+    `number_limit` VARCHAR(15),
+    `status` VARCHAR(20),
+    doctor_id VARCHAR(10),
+    CONSTRAINT PRIMARY KEY (session_id),
+    CONSTRAINT FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id)
+);
+
+DESC doctor_session;
+
+SELECT * FROM doctor_session;
+
 -- Creating appointment table 
 
 CREATE TABLE appointment (
@@ -78,16 +96,18 @@ CREATE TABLE appointment (
     `status` VARCHAR(20),
     doctor_id VARCHAR(10),
     patient_id VARCHAR(10),
+    session_id VARCHAR(10),
     CONSTRAINT PRIMARY KEY (appointment_id),
     CONSTRAINT FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id),
-    CONSTRAINT FOREIGN KEY (patient_id) REFERENCES patient(patient_id)
+    CONSTRAINT FOREIGN KEY (patient_id) REFERENCES patient(patient_id),
+    CONSTRAINT FOREIGN KEY (session_id) REFERENCES doctor_session(session_id)
 );
 
 DESC appointment;
 
 SELECT * FROM appointment;
 
-
+DROP TABLE appointment;
 
 
 

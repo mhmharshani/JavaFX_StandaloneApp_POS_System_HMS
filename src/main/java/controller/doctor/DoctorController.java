@@ -258,4 +258,60 @@ public class DoctorController implements DoctorService {
 
     }
 
+    public List<DoctorSession> searchDoctorSessionByDocId(String id) {
+        ArrayList<DoctorSession> doctorSessionArrayList = new ArrayList<>();
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM doctor_session WHERE doctor_id =" + "'" + id + "'");
+
+            while(resultSet.next()) {
+
+                doctorSessionArrayList.add(new DoctorSession(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7)
+                ));
+            }
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return doctorSessionArrayList;
+    }
+
+    public DoctorSession searchDoctorSession (String doctorId, String date, String time) {
+
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM doctor_session WHERE doctor_id =" + "'" + doctorId + "'" + "AND date =" + "'" + date + "'" + "AND time =" + "'" + time + "'");
+
+            if(resultSet.next()) {
+
+                return new DoctorSession(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7)
+                );
+            }
+            else{
+                return null;
+            }
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }

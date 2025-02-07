@@ -96,7 +96,6 @@ public class DoctorFormController implements Initializable {
         checkNoLimit.selectedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean newValue) {
-                System.out.println(newValue);
                 if(newValue){
                     txtNumber.setText("Unlimited");
                 }
@@ -235,9 +234,3 @@ public class DoctorFormController implements Initializable {
     }
 }
 
-//    cmbSessionName.getSelectionModel().selectedItemProperty().addListener((observableValue, oldValue, newValue) -> {
-//            if(newValue!=null){
-//                //sessionName = newValue.toString();
-//
-//            }
-//        });
