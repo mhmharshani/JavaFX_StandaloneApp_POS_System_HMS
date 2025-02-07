@@ -2,11 +2,12 @@ package controller.staff;
 
 import model.Employee;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface StaffService {
 
-    boolean addEmployee(Employee employee);
+    boolean addEmployee(Employee employee) throws SQLException;
 
     boolean updateEmployee(Employee employee);
 

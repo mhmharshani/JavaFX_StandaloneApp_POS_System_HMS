@@ -24,6 +24,7 @@ import model.DoctorSession;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -141,19 +142,25 @@ public class AppointmentFormController implements Initializable {
                 cmbPatientId.getValue().toString(),
                 txtSessionId.getText()
         );
-        boolean isAdded = new AppointmentController().addAppointment(appointment);
-        Alert alert = isAdded ? (new Alert(Alert.AlertType.CONFIRMATION, "Added Success !!")) : (new Alert(Alert.AlertType.ERROR, "Added Failed !!"));
-        alert.show();
-        if (isAdded){
-            lblAppointId.setText(new AppointmentController().nextId());
-            dpDate.setValue(null);
-            cmbTime.setValue(null);
-            lblNumber.setText("");
-            cmbStatus.setValue(null);
-            txtSpeciality.setText("");
-            cmbDoctorId.setValue(null);
-            cmbPatientId.setValue(null);
-            txtSessionId.setText("");
+
+        try {
+            boolean isAdded = new AppointmentController().addAppointment(appointment);
+            Alert alert = isAdded ? (new Alert(Alert.AlertType.CONFIRMATION, "Added Success !!")) : (new Alert(Alert.AlertType.ERROR, "Added Failed !!"));
+            alert.show();
+            if (isAdded){
+                lblAppointId.setText(new AppointmentController().nextId());
+                dpDate.setValue(null);
+                cmbTime.setValue(null);
+                lblNumber.setText("");
+                cmbStatus.setValue(null);
+                txtSpeciality.setText("");
+                cmbDoctorId.setValue(null);
+                cmbPatientId.setValue(null);
+                txtSessionId.setText("");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }

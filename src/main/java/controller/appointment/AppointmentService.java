@@ -1,12 +1,14 @@
 package controller.appointment;
 
 import model.Appointment;
+
+import java.sql.SQLException;
 import java.util.List;
 
 public interface AppointmentService {
 
 
-    boolean addAppointment(Appointment appointment);
+    boolean addAppointment(Appointment appointment) throws SQLException;
 
     boolean updateAppointment(Appointment appointment);
 

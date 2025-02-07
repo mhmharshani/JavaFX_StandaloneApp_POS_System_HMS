@@ -15,6 +15,7 @@ import model.Employee;
 import model.Patient;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -91,19 +92,25 @@ public class StaffFormController implements Initializable {
                 txtQualifications.getText(),
                 Double.parseDouble(txtSalary.getText())
         );
-        boolean isAdded = new StaffController().addEmployee(employee);
-        Alert alert = isAdded ? (new Alert(Alert.AlertType.CONFIRMATION, "Added Success !!")) : (new Alert(Alert.AlertType.ERROR, "Added Failed !!"));
-        alert.show();
-        if (isAdded){
-            txtId.setText(new StaffController().nextId());
-            txtName.setText("");
-            txtGender.setText("");
-            txtAddress.setText("");
-            txtPhone.setText("");
-            txtDesignation.setText("");
-            txtQualifications.setText("");
-            txtSalary.setText("");
+
+        try {
+            Boolean isAdded = new StaffController().addEmployee(employee);
+            Alert alert = isAdded ? (new Alert(Alert.AlertType.CONFIRMATION, "Added Success !!")) : (new Alert(Alert.AlertType.ERROR, "Added Failed !!"));
+            alert.show();
+            if (isAdded){
+                txtId.setText(new StaffController().nextId());
+                txtName.setText("");
+                txtGender.setText("");
+                txtAddress.setText("");
+                txtPhone.setText("");
+                txtDesignation.setText("");
+                txtQualifications.setText("");
+                txtSalary.setText("");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
     }
 
     @FXML

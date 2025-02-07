@@ -107,7 +107,40 @@ DESC appointment;
 
 SELECT * FROM appointment;
 
-DROP TABLE appointment;
+-- Creating prescription table 
 
+CREATE TABLE prescription (
+    prescription_id VARCHAR(10),
+    diagnosis VARCHAR(50) NOT NULL,
+    medicine VARCHAR(30),
+    dosage VARCHAR(20),
+    duration VARCHAR(20),
+    doctor_id VARCHAR(10),
+    patient_id VARCHAR(10),
+    CONSTRAINT PRIMARY KEY (prescription_id),
+    CONSTRAINT FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id),
+    CONSTRAINT FOREIGN KEY (patient_id) REFERENCES patient(patient_id)
+);
 
+DESC prescription;
+
+SELECT * FROM prescription;
+
+-- Creating prescription table 
+
+CREATE TABLE billing (
+    billing_id VARCHAR(10),
+    gen_date DATE,
+    gen_time TIME,
+    `description` VARCHAR(30),
+    total DOUBLE,
+    `status` VARCHAR(20),
+    patient_id VARCHAR(10),
+    CONSTRAINT PRIMARY KEY (billing_id),
+    CONSTRAINT FOREIGN KEY (patient_id) REFERENCES patient(patient_id)
+);
+
+DESC billing;
+
+SELECT * FROM billing;
 

@@ -45,20 +45,27 @@ public class DoctorController implements DoctorService {
     }
 
     @Override
-    public boolean addDoctor(Doctor doctor) {
+    public boolean addDoctor(Doctor doctor) throws SQLException {
         String SQL = "INSERT INTO doctor VALUES (?,?,?,?)";
+        Connection connection = DBConnection.getInstance().getConnection();
         try {
-            PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
+            connection.setAutoCommit(false);
+            PreparedStatement pstm = connection.prepareStatement(SQL);
             pstm.setString(1, doctor.getId());
             pstm.setString(2, doctor.getSpeciality());
             pstm.setString(3, doctor.getAvailability());
             pstm.setString(4, doctor.getEmpId());
-            pstm.executeUpdate();
+            boolean isDoctorAdded = pstm.executeUpdate() > 0;
+            if(isDoctorAdded){
+                connection.commit();
+                return true;
+            }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        }finally {
+            connection.setAutoCommit(true);
         }
-        return true;
+        connection.rollback();
+        return false;
     }
 
     @Override
@@ -163,11 +170,12 @@ public class DoctorController implements DoctorService {
 
     //-----------------Doctor Session Controller--------------------------------------
 
-    public boolean addSession(DoctorSession doctorSession) {
+    public boolean addSession(DoctorSession doctorSession) throws SQLException {
         String SQL = "INSERT INTO doctor_session VALUES (?,?,?,?,?,?,?)";
-
+        Connection connection = DBConnection.getInstance().getConnection();
         try {
-            PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
+            connection.setAutoCommit(false);
+            PreparedStatement pstm = connection.prepareStatement(SQL);
             pstm.setString(1, doctorSession.getId());
             pstm.setString(2, doctorSession.getName());
             pstm.setDate(3, java.sql.Date.valueOf(doctorSession.getDate()));
@@ -175,12 +183,17 @@ public class DoctorController implements DoctorService {
             pstm.setString(5, doctorSession.getNumberLimit());
             pstm.setString(6, doctorSession.getStatus());
             pstm.setString(7, doctorSession.getDoctorId());
-            pstm.executeUpdate();
+            Boolean isSessionAdded = pstm.executeUpdate() > 0;
+            if(isSessionAdded){
+                connection.commit();
+                return true;
+            }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } finally {
+            connection.setAutoCommit(true);
         }
-        return true;
+        connection.rollback();
+        return false;
     }
 
     public List<DoctorSession> getAllSessions() {

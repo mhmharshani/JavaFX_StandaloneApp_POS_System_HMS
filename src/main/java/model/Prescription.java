@@ -13,15 +13,13 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 
-public class Appointment {
+public class Prescription {
 
     private String id;
-    private String date;
-    private String time;
-    private Integer number;
-    private String status;
+    private String diagnosis;
+    private String medicine;
+    private String dosage;
+    private String duration;
     private String doctorId;
     private String patientId;
-    private String sessionId;
-
 }

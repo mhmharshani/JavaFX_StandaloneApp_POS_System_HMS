@@ -15,6 +15,7 @@ import model.Doctor;
 import model.DoctorSession;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -109,12 +110,6 @@ public class DoctorFormController implements Initializable {
     @FXML
     void btnScheduleASessionOnAction(ActionEvent event) {
 
-//        if(checkNoLimit.isSelected()){
-//
-//        }
-//        else{
-//            txtNumber
-//        }
         DoctorSession doctorSession = new DoctorSession(
                 lblSessionId.getText(),
                 cmbSessionName.getValue().toString(),
@@ -125,18 +120,22 @@ public class DoctorFormController implements Initializable {
                 cmbDoctorId.getValue().toString()
         );
 
-        boolean isAdded = new DoctorController().addSession(doctorSession);
-        Alert alert = isAdded ? (new Alert(Alert.AlertType.CONFIRMATION, "Added Success !!")) : (new Alert(Alert.AlertType.ERROR, "Added Failed !!"));
-        alert.show();
-        if (isAdded){
-            lblSessionId.setText(new DoctorController().nextSessionId());
-            cmbSessionName.setValue(null);
-            dpDate.setValue(null);
-            txtTime.setText("");
-            txtNumber.setText("");
-            cmbStatus.setValue(null);
-            cmbDoctorId.setValue(null);
-            checkNoLimit.setSelected(false);
+        try {
+            boolean isAdded = new DoctorController().addSession(doctorSession);
+            Alert alert = isAdded ? (new Alert(Alert.AlertType.CONFIRMATION, "Added Success !!")) : (new Alert(Alert.AlertType.ERROR, "Added Failed !!"));
+            alert.show();
+            if (isAdded){
+                lblSessionId.setText(new DoctorController().nextSessionId());
+                cmbSessionName.setValue(null);
+                dpDate.setValue(null);
+                txtTime.setText("");
+                txtNumber.setText("");
+                cmbStatus.setValue(null);
+                cmbDoctorId.setValue(null);
+                checkNoLimit.setSelected(false);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
     }
@@ -148,15 +147,20 @@ public class DoctorFormController implements Initializable {
                 txtAvailability.getText(),
                 txtEmpId.getText()
         );
-        boolean isAdded = new DoctorController().addDoctor(doctor);
-        Alert alert = isAdded ? (new Alert(Alert.AlertType.CONFIRMATION, "Added Success !!")) : (new Alert(Alert.AlertType.ERROR, "Added Failed !!"));
-        alert.show();
-        if (isAdded){
-            txtId.setText(new DoctorController().nextId());
-            txtSpeciality.setText("");
-            txtAvailability.setText("");
-            txtEmpId.setText("");
+        try {
+            boolean isAdded = new DoctorController().addDoctor(doctor);
+            Alert alert = isAdded ? (new Alert(Alert.AlertType.CONFIRMATION, "Added Success !!")) : (new Alert(Alert.AlertType.ERROR, "Added Failed !!"));
+            alert.show();
+            if (isAdded){
+                txtId.setText(new DoctorController().nextId());
+                txtSpeciality.setText("");
+                txtAvailability.setText("");
+                txtEmpId.setText("");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
     }
 
     @FXML

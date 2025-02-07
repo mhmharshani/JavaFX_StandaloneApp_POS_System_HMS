@@ -43,10 +43,12 @@ public class AppointmentController implements AppointmentService{
     }
 
     @Override
-    public boolean addAppointment(Appointment appointment) {
+    public boolean addAppointment(Appointment appointment) throws SQLException {
         String SQL = "INSERT INTO appointment VALUES (?,?,?,?,?,?,?,?)";
+        Connection connection = DBConnection.getInstance().getConnection();
         try {
-            PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
+            connection.setAutoCommit(false);
+            PreparedStatement pstm = connection.prepareStatement(SQL);
             pstm.setString(1, appointment.getId());
             pstm.setDate(2, java.sql.Date.valueOf(appointment.getDate()));
             pstm.setTime(3, java.sql.Time.valueOf(appointment.getTime()));
@@ -55,12 +57,17 @@ public class AppointmentController implements AppointmentService{
             pstm.setString(6, appointment.getDoctorId());
             pstm.setString(7, appointment.getPatientId());
             pstm.setString(8,appointment.getSessionId());
-            pstm.executeUpdate();
+            Boolean isAppointmentAdded = pstm.executeUpdate() > 0;
+            if(isAppointmentAdded){
+                connection.commit();
+                return true;
+            }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } finally {
+            connection.setAutoCommit(true);
         }
-        return true;
+        connection.rollback();
+        return false;
     }
 
     @Override

@@ -38,10 +38,12 @@ public class StaffController implements StaffService {
     }
 
     @Override
-    public boolean addEmployee(Employee employee) {
+    public boolean addEmployee(Employee employee) throws SQLException {
         String SQL = "INSERT INTO employee VALUES (?,?,?,?,?,?,?,?)";
+        Connection connection = DBConnection.getInstance().getConnection();
         try {
-            PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
+            connection.setAutoCommit(false);
+            PreparedStatement pstm = connection.prepareStatement(SQL);
             pstm.setString(1, employee.getId());
             pstm.setString(2, employee.getName());
             pstm.setString(3, employee.getGender());
@@ -50,12 +52,17 @@ public class StaffController implements StaffService {
             pstm.setString(6, employee.getDesignation());
             pstm.setString(7, employee.getQualification());
             pstm.setDouble(8, employee.getSalary());
-            pstm.executeUpdate();
+            Boolean isEmployeeAdded = pstm.executeUpdate() > 0;
+            if (isEmployeeAdded){
+                connection.commit();
+                return true;
+            }
 
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        } finally {
+            connection.setAutoCommit(true);
         }
-        return true;
+        connection.rollback();
+        return false;
     }
 
     @Override

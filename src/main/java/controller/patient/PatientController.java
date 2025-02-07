@@ -14,10 +14,12 @@ import java.util.List;
 public class PatientController implements PatientService{
 
     @Override
-    public boolean addPatient(Patient patient) {
+    public boolean addPatient(Patient patient) throws SQLException {
         String SQL = "INSERT INTO patient VALUES (?,?,?,?,?,?,?)";
+        Connection connection = DBConnection.getInstance().getConnection();
         try {
-            PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
+            connection.setAutoCommit(false);
+            PreparedStatement pstm = connection.prepareStatement(SQL);
             pstm.setString(1, patient.getId());
             pstm.setString(2, patient.getName());
             pstm.setString(3, patient.getNic());
@@ -25,12 +27,16 @@ public class PatientController implements PatientService{
             pstm.setString(5, patient.getGender());
             pstm.setString(6, patient.getPhoneNo());
             pstm.setInt(7, patient.getAge());
-            pstm.executeUpdate();
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            boolean isPatientAdded = pstm.executeUpdate() > 0;
+            if(isPatientAdded){
+                connection.commit();
+                return true;
+            }
+        }finally {
+            connection.setAutoCommit(true);
         }
-        return true;
+        connection.rollback();
+        return false;
     }
 
     public String nextId(){

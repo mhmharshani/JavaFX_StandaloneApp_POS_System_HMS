@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.Patient;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -83,18 +84,24 @@ public class PatientFormController implements Initializable {
                 txtPhone.getText(),
                 Integer.parseInt(txtAge.getText())
         );
-        boolean isAdded = new PatientController().addPatient(patient);
-        Alert alert = isAdded ? (new Alert(Alert.AlertType.CONFIRMATION, "Added Success !!")) : (new Alert(Alert.AlertType.ERROR, "Added Failed !!"));
-        alert.show();
-        if (isAdded){
-            txtId.setText(new PatientController().nextId());
-            txtName.setText("");
-            txtNIC.setText("");
-            txtAddress.setText("");
-            txtGender.setText("");
-            txtPhone.setText("");
-            txtAge.setText("");
+        boolean isAdded = false;
+        try {
+            isAdded = new PatientController().addPatient(patient);
+            Alert alert = isAdded ? (new Alert(Alert.AlertType.CONFIRMATION, "Added Success !!")) : (new Alert(Alert.AlertType.ERROR, "Added Failed !!"));
+            alert.show();
+            if (isAdded){
+                txtId.setText(new PatientController().nextId());
+                txtName.setText("");
+                txtNIC.setText("");
+                txtAddress.setText("");
+                txtGender.setText("");
+                txtPhone.setText("");
+                txtAge.setText("");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
+
     }
 
     @FXML
