@@ -21,28 +21,28 @@
             <Font name="Poppins Bold" size="11.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#cfdcf3" height="212.0" layoutX="28.0" layoutY="94.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="2.0" width="586.0" />
-      <Label layoutX="44.0" layoutY="146.0" text="Patient ID" textFill="#1b222d">
+      <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#cfdcf3" height="212.0" layoutX="28.0" layoutY="79.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="2.0" width="586.0" />
+      <Label layoutX="44.0" layoutY="131.0" text="Patient ID" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="44.0" layoutY="194.0" text="Diagnosis" textFill="#1b222d">
+      <Label layoutX="44.0" layoutY="179.0" text="Diagnosis" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDiagnosis" layoutX="150.0" layoutY="191.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtDiagnosis" layoutX="150.0" layoutY="176.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <Label layoutX="46.0" layoutY="235.0" text="Medicine" textFill="#1b222d">
+      <Label layoutX="46.0" layoutY="220.0" text="Medicine" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <JFXButton layoutX="508.0" layoutY="264.0" onAction="#btnIssueOnAction" prefHeight="33.0" prefWidth="90.0" style="-fx-background-color: #8857F2;" text="ISSUE" textFill="#1b222d">
+      <JFXButton layoutX="508.0" layoutY="249.0" onAction="#btnIssueOnAction" prefHeight="33.0" prefWidth="90.0" style="-fx-background-color: #8857F2;" text="ISSUE" textFill="#1b222d">
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -54,17 +54,17 @@
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="txtSearch" layoutX="174.0" layoutY="57.0" prefHeight="28.0" prefWidth="157.0" promptText="Search" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtSearch" layoutX="195.0" layoutY="314.0" prefHeight="28.0" prefWidth="138.0" promptText="Search" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <JFXButton layoutX="371.0" layoutY="57.0" onAction="#btnShowPrescriptionOnAction" prefHeight="28.0" prefWidth="138.0" style="-fx-background-color: #7A97CA;" text="Show Prescriptions" textAlignment="CENTER" textFill="#cfdcf3">
+      <JFXButton layoutX="373.0" layoutY="314.0" onAction="#btnShowPrescriptionOnAction" prefHeight="28.0" prefWidth="138.0" style="-fx-background-color: #7A97CA;" text="Show Prescriptions" textAlignment="CENTER" textFill="#cfdcf3">
          <font>
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Label layoutX="29.0" layoutY="70.0" text="Prescription Details" textFill="#1b222d">
+      <Label layoutX="29.0" layoutY="55.0" text="Prescription Details" textFill="#1b222d">
          <font>
             <Font name="Poppins Bold" size="12.0" />
          </font>
@@ -74,7 +74,7 @@
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </Label>
-      <Separator layoutX="45.0" layoutY="177.0" prefHeight="0.0" prefWidth="551.0" />
+      <Separator layoutX="45.0" layoutY="162.0" prefHeight="0.0" prefWidth="551.0" />
       <TableView fx:id="tblPrescription" layoutX="36.0" layoutY="360.0" prefHeight="111.0" prefWidth="571.0" style="-fx-background-color: #F3F6FC;">
         <columns>
           <TableColumn fx:id="colPresId" prefWidth="99.0" text="Prescription ID" />
@@ -86,47 +86,47 @@
             <TableColumn fx:id="colPatientId" prefWidth="65.0" text="Patient ID" />
         </columns>
       </TableView>
-      <Label layoutX="346.0" layoutY="146.0" text="Doctor ID" textFill="#1b222d">
+      <Label layoutX="346.0" layoutY="131.0" text="Doctor ID" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDocId" editable="false" layoutX="426.0" layoutY="142.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtDocId" editable="false" layoutX="426.0" layoutY="127.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtPatientId" editable="false" layoutX="149.0" layoutY="142.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtPatientId" editable="false" layoutX="149.0" layoutY="127.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtMedicine" layoutX="150.0" layoutY="231.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtMedicine" layoutX="150.0" layoutY="216.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <Label layoutX="345.0" layoutY="196.0" text="Dosage" textFill="#1b222d">
+      <Label layoutX="345.0" layoutY="181.0" text="Dosage" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDosage" layoutX="426.0" layoutY="193.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtDosage" layoutX="426.0" layoutY="178.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <Label layoutX="345.0" layoutY="237.0" text="Duration" textFill="#1b222d">
+      <Label layoutX="345.0" layoutY="222.0" text="Duration" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDuration" layoutX="426.0" layoutY="233.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtDuration" layoutX="426.0" layoutY="218.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <Button alignment="CENTER" layoutX="588.0" layoutY="57.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="28.0" prefWidth="36.0" style="-fx-background-color: #CFDCF3;">
+      <Button alignment="CENTER" layoutX="590.0" layoutY="314.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="28.0" prefWidth="36.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -135,7 +135,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" layoutX="551.0" layoutY="57.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="28.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
+      <Button alignment="CENTER" layoutX="553.0" layoutY="314.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="28.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -144,7 +144,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" layoutX="333.0" layoutY="58.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
+      <Button alignment="CENTER" layoutX="335.0" layoutY="315.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -153,7 +153,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" layoutX="512.0" layoutY="57.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="18.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
+      <Button alignment="CENTER" layoutX="514.0" layoutY="314.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="18.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -162,11 +162,11 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="416.0" layoutY="108.0" text="Prescription ID  :  " textFill="#1b222d">
+      <Label layoutX="416.0" layoutY="93.0" text="Prescription ID  :  " textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblPreId" layoutX="536.0" layoutY="109.0" prefHeight="19.0" prefWidth="68.0" text="PCP#00001" />
+      <Label fx:id="lblPreId" layoutX="536.0" layoutY="94.0" prefHeight="19.0" prefWidth="68.0" text="PCP#00001" />
    </children>
 </AnchorPane>

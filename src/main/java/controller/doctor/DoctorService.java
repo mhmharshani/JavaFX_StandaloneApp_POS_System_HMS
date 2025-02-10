@@ -11,7 +11,7 @@ public interface DoctorService {
 
     boolean updateDoctor(Doctor doctor);
 
-    Doctor searchDoctorByName(String name);
+    List<String> searchDoctorByName(String name);
 
     Doctor searchDoctorByPhoneNo(String phoneNo);
 

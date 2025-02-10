@@ -1,4 +1,4 @@
-package controller;
+package controller.dashboard;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.Animation;
@@ -16,6 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import lombok.Getter;
+import model.Dashboard;
 
 import java.io.IOException;
 import java.net.URL;
@@ -218,6 +219,13 @@ public class DashboardFormController implements Initializable {
 
         loadFormContent.getChildren().clear();
         loadFormContent.getChildren().add(load);
+    }
+
+    public String loadRealDate(){
+        return lblDate.getText();
+    }
+    public String loadRealTime(){
+        return lblTime.getText();
     }
 
 

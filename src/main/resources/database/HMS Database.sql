@@ -53,6 +53,9 @@ DESC employee;
 
 SELECT * FROM employee;
 
+SELECT * FROM employee WHERE `name`='SAMAN';
+
+
 -- Creating doctor table 
 
 CREATE TABLE doctor (

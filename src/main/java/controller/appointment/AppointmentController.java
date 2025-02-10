@@ -111,6 +111,31 @@ public class AppointmentController implements AppointmentService{
         }
     }
 
+    public Appointment searchAppointmentBySIdAndDocId(String sessionId, Integer number) {
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM appointment WHERE session_id =" + "'" + sessionId + "'"+"AND number ="+ "'" + number + "'");
+            if(resultSet.next()) {
+                return new Appointment(
+                        resultSet.getString(1),
+                        resultSet.getDate(2).toString(),
+                        resultSet.getString(3),
+                        resultSet.getInt(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8)
+                );
+            }
+            else{
+                return null;
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @Override
     public boolean deleteAppointment(String id) {
         try {

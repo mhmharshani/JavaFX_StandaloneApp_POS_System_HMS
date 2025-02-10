@@ -3,7 +3,6 @@ package controller.appointment;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
-import controller.DashboardFormController;
 import controller.doctor.DoctorController;
 import controller.patient.PatientController;
 import javafx.beans.value.ChangeListener;
@@ -12,20 +11,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import model.Appointment;
-import model.Doctor;
 import model.DoctorSession;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 

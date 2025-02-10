@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import model.Doctor;
 import model.DoctorSession;
+import model.Employee;
 
 
 import java.sql.Connection;
@@ -74,8 +75,26 @@ public class DoctorController implements DoctorService {
     }
 
     @Override
-    public Doctor searchDoctorByName(String name) {
-        return null;
+    public List<String> searchDoctorByName(String name) {
+        ArrayList<String> docIdList = new ArrayList<>();
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM employee WHERE name =" + "'" + name + "'");
+
+            ResultSet resultSet2;
+            while(resultSet.next()) {
+                resultSet2 = connection.createStatement().executeQuery("SELECT * FROM doctor WHERE employee_id =" + "'" + resultSet.getString(1) + "'");
+                while(resultSet2.next()) {
+                    docIdList.add(resultSet2.getString(1));
+                }
+            }
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return docIdList;
     }
 
     @Override

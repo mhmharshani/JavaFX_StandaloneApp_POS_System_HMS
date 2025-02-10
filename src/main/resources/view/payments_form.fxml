@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
@@ -17,34 +18,34 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #CFDCF3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.payment.PaymentFormController">
    <children>
-      <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#cfdcf3" height="117.0" layoutX="29.0" layoutY="363.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="2.0" width="594.0" />
+      <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#cfdcf3" height="117.0" layoutX="29.0" layoutY="364.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="2.0" width="594.0" />
       <Label alignment="CENTER" layoutX="22.0" layoutY="14.0" prefHeight="17.0" prefWidth="72.0" style="-fx-background-color: #7A97CA;" text="Payment &gt;" textAlignment="CENTER" textFill="#cfdcf3">
          <font>
             <Font name="Poppins Bold" size="11.0" />
          </font>
       </Label>
-      <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#cfdcf3" height="246.0" layoutX="28.0" layoutY="82.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="2.0" width="594.0" />
-      <Label layoutX="44.0" layoutY="108.0" text="Doctor Name" textFill="#1b222d">
+      <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#cfdcf3" height="254.0" layoutX="28.0" layoutY="64.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="2.0" width="594.0" />
+      <Label layoutX="177.0" layoutY="78.0" text="Doctor Name" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDocName" editable="false" layoutX="139.0" layoutY="105.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtDocName" layoutX="272.0" layoutY="75.0" prefHeight="25.0" prefWidth="141.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <Label layoutX="232.0" layoutY="209.0" text="Patient Name  : " textFill="#1b222d">
+      <Label layoutX="232.0" layoutY="217.0" text="Patient Name  : " textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="45.0" layoutY="149.0" text="Date " textFill="#1b222d">
+      <Label layoutX="45.0" layoutY="115.0" text="Date " textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <JFXButton layoutX="232.0" layoutY="284.0" onAction="#btnPrintBillOnAction" prefHeight="28.0" prefWidth="93.0" style="-fx-background-color: #8857F2;" text="Print Bill" textFill="#1b222d">
+      <JFXButton fx:id="btnPrintBill" layoutX="232.0" layoutY="281.0" onAction="#btnPrintBillOnAction" prefHeight="28.0" prefWidth="93.0" style="-fx-background-color: #8857F2;" text="Print Bill" textFill="#1b222d">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -56,39 +57,39 @@
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="txtSearch" layoutX="160.0" layoutY="43.0" prefHeight="28.0" prefWidth="187.0" promptText="Search" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtSearch" layoutX="160.0" layoutY="329.0" prefHeight="28.0" prefWidth="187.0" promptText="Search" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <JFXButton layoutX="393.0" layoutY="45.0" onAction="#btnShowPaymentsOnAction" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #7A97CA;" text="Show Payments" textAlignment="CENTER" textFill="#cfdcf3">
+      <JFXButton layoutX="393.0" layoutY="331.0" onAction="#btnShowPaymentsOnAction" prefHeight="28.0" prefWidth="116.0" style="-fx-background-color: #7A97CA;" text="Show Payments" textAlignment="CENTER" textFill="#cfdcf3">
          <font>
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Label layoutX="29.0" layoutY="58.0" text="Payment Details" textFill="#1b222d">
+      <Label layoutX="29.0" layoutY="42.0" text="Payment Details" textFill="#1b222d">
          <font>
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="48.0" layoutY="209.0" text="Doctor Fee         : " textFill="#1b222d">
+      <Label layoutX="48.0" layoutY="191.0" text="Doctor Fee         : " textFill="#1b222d">
          <font>
             <Font name="Poppins Bold" size="11.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dpDate" layoutX="139.0" layoutY="146.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC; -fx-border-color: none;" />
-      <Label layoutX="329.0" layoutY="150.0" text="Session Name" textFill="#1b222d">
+      <DatePicker fx:id="dpDate" layoutX="139.0" layoutY="112.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC; -fx-border-color: none;" />
+      <Label layoutX="326.0" layoutY="116.0" text="Time" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="cmbSessionName" layoutX="426.0" layoutY="146.0" prefHeight="25.0" prefWidth="165.0" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="cmbTime" layoutX="386.0" layoutY="109.0" prefHeight="25.0" prefWidth="208.0" unFocusColor="WHITE" />
       <Label layoutX="30.0" layoutY="341.0" text="Billing Summary" textFill="#1b222d">
          <font>
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </Label>
-      <JFXButton layoutX="337.0" layoutY="284.0" onAction="#btnPayByCardOnAction" prefHeight="28.0" prefWidth="125.0" style="-fx-background-color: #7DD4AC;" text="PAY BY CARD" textFill="#1b222d">
+      <JFXButton fx:id="btnPayByCard" layoutX="337.0" layoutY="281.0" onAction="#btnPayByCardOnAction" prefHeight="28.0" prefWidth="125.0" style="-fx-background-color: #7DD4AC;" text="PAY BY CARD" textFill="#1b222d">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -100,7 +101,7 @@
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Separator layoutX="46.0" layoutY="190.0" prefHeight="0.0" prefWidth="551.0" />
+      <Separator layoutX="46.0" layoutY="180.0" prefHeight="0.0" prefWidth="551.0" />
       <TableView fx:id="tblBilling" layoutX="37.0" layoutY="376.0" prefHeight="93.0" prefWidth="576.0" style="-fx-background-color: #F3F6FC;">
         <columns>
           <TableColumn fx:id="colBillId" prefWidth="62.0" text="Bill ID" />
@@ -112,68 +113,62 @@
             <TableColumn fx:id="colPatientId" minWidth="4.0" prefWidth="64.0" text="Patient ID" />
         </columns>
       </TableView>
-      <Label layoutX="458.0" layoutY="108.0" text=" Number   :" textFill="#1b222d">
-         <font>
-            <Font name="Poppins Bold" size="12.0" />
-         </font>
-      </Label>
-      <Label layoutX="532.0" layoutY="103.0" prefHeight="28.0" prefWidth="49.0" style="-fx-background-color: #7DD4AC;" textFill="#1b222d">
+      <Label layoutX="43.0" layoutY="153.0" text=" Number   :" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="cmbNo" layoutX="532.0" layoutY="105.0" prefHeight="25.0" prefWidth="49.0" unFocusColor="WHITE" />
-      <Label layoutX="48.0" layoutY="237.0" text="Hospital Fee     : " textFill="#1b222d">
+      <Label layoutX="48.0" layoutY="219.0" text="Hospital Fee     : " textFill="#1b222d">
          <font>
             <Font name="Poppins Bold" size="11.0" />
          </font>
       </Label>
-      <Label layoutX="463.0" layoutY="223.0" text="Total Amount :" textFill="#1b222d">
+      <Label layoutX="463.0" layoutY="224.0" text="Total Amount :" textFill="#1b222d">
          <font>
             <Font name="Poppins Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblDocFee" layoutX="152.0" layoutY="209.0" text="0.00" textFill="#1b222d">
+      <Label fx:id="lblDocFee" alignment="CENTER_RIGHT" layoutX="152.0" layoutY="191.0" text="0.00" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="11.0" />
          </font>
       </Label>
-      <Label fx:id="lblHosFee" layoutX="152.0" layoutY="236.0" text="0.00" textFill="#1b222d">
+      <Label fx:id="lblHosFee" alignment="CENTER_RIGHT" layoutX="152.0" layoutY="218.0" text="0.00" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="11.0" />
          </font>
       </Label>
-      <Label layoutX="48.0" layoutY="264.0" text="Booking Fee     : " textFill="#1b222d">
+      <Label layoutX="48.0" layoutY="246.0" text="Booking Fee     : " textFill="#1b222d">
          <font>
             <Font name="Poppins Bold" size="11.0" />
          </font>
       </Label>
-      <Label fx:id="lblBookingFee" layoutX="152.0" layoutY="264.0" text="0.00" textFill="#1b222d">
+      <Label fx:id="lblBookingFee" alignment="CENTER_RIGHT" layoutX="152.0" layoutY="246.0" text="0.00" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="11.0" />
          </font>
       </Label>
-      <Label layoutX="48.0" layoutY="293.0" text="Discounts          : " textFill="#1b222d">
+      <Label layoutX="48.0" layoutY="275.0" text="Discounts          : " textFill="#1b222d">
          <font>
             <Font name="Poppins Bold" size="11.0" />
          </font>
       </Label>
-      <Label fx:id="lblDiscounts" layoutX="152.0" layoutY="293.0" text="0.00" textFill="#1b222d">
+      <Label fx:id="lblDiscounts" alignment="CENTER_RIGHT" layoutX="152.0" layoutY="275.0" text="0.00" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="11.0" />
          </font>
       </Label>
-      <Label fx:id="lblTotalAmount" layoutX="570.0" layoutY="223.0" text="0.00" textFill="#1b222d">
+      <Label fx:id="lblTotalAmount" alignment="CENTER_RIGHT" layoutX="570.0" layoutY="224.0" text="0.00" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblPatientName" layoutX="336.0" layoutY="209.0" text="--------" textFill="#1b222d">
+      <Label fx:id="lblPatientName" layoutX="336.0" layoutY="217.0" prefHeight="19.0" prefWidth="103.0" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="11.0" />
          </font>
       </Label>
-      <JFXButton layoutX="473.0" layoutY="284.0" onAction="#btnPayByCashOnAction" prefHeight="28.0" prefWidth="125.0" style="-fx-background-color: #7DD4AC;" text="PAY BY CASH" textFill="#1b222d">
+      <JFXButton fx:id="btnPayByCash" layoutX="473.0" layoutY="281.0" onAction="#btnPayByCashOnAction" prefHeight="28.0" prefWidth="125.0" style="-fx-background-color: #7DD4AC;" text="PAY BY CASH" textFill="#1b222d">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -185,13 +180,13 @@
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Label layoutX="232.0" layoutY="237.0" text="Description      : " textFill="#1b222d">
+      <Label layoutX="232.0" layoutY="245.0" text="Description      : " textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="cmbDesc" layoutX="337.0" layoutY="226.0" prefHeight="25.0" prefWidth="43.0" unFocusColor="WHITE" />
-      <Button alignment="CENTER" layoutX="587.0" layoutY="45.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="28.0" prefWidth="36.0" style="-fx-background-color: #CFDCF3;">
+      <JFXComboBox fx:id="cmbDesc" layoutX="337.0" layoutY="239.0" prefHeight="25.0" prefWidth="102.0" unFocusColor="WHITE" />
+      <Button alignment="CENTER" layoutX="587.0" layoutY="331.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="28.0" prefWidth="36.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -200,7 +195,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" layoutX="550.0" layoutY="45.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="28.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
+      <Button alignment="CENTER" layoutX="550.0" layoutY="331.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="28.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -209,7 +204,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" layoutX="348.0" layoutY="45.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
+      <Button alignment="CENTER" layoutX="348.0" layoutY="331.0" mnemonicParsing="false" onAction="#btnSearchBillOnAction" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -218,7 +213,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" layoutX="511.0" layoutY="45.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="28.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
+      <Button alignment="CENTER" layoutX="511.0" layoutY="331.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="28.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -227,16 +222,55 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" layoutX="314.0" layoutY="105.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
+      <Label layoutX="232.0" layoutY="189.0" text="Patient ID  : " textFill="#1b222d">
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPatientId" layoutX="336.0" layoutY="191.0" prefHeight="19.0" prefWidth="103.0" textFill="#1b222d">
+         <font>
+            <Font name="Poppins Regular" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="484.0" layoutY="189.0" text="Bill ID  : " textFill="#1b222d">
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblBillid" layoutX="531.0" layoutY="189.0" prefHeight="19.0" prefWidth="72.0" textFill="#1b222d">
+         <font>
+            <Font name="Poppins Regular" size="11.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="503.0" layoutY="148.0" onAction="#btnSearchOnAction" prefHeight="28.0" prefWidth="93.0" style="-fx-background-color: #8857F2;" text="Search" textFill="#1b222d">
          <graphic>
-            <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="20.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/icon-search.png" />
+                  <Image url="@../img/icon-searchLight.png" />
                </image>
             </ImageView>
          </graphic>
-      </Button>
-      <Button alignment="CENTER" layoutX="584.0" layoutY="104.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
+         <font>
+            <Font name="Poppins Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXCheckBox fx:id="checkPaid" layoutX="45.0" layoutY="79.0" text="Already Paid" textFill="#1b222d">
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font>
+      </JFXCheckBox>
+      <Label layoutX="459.0" layoutY="79.0" text="Doctor ID" textFill="#1b222d">
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font>
+      </Label>
+      <JFXComboBox fx:id="cmbDocId" layoutX="522.0" layoutY="74.0" prefHeight="25.0" prefWidth="72.0" unFocusColor="WHITE" />
+      <TextField fx:id="txtNumber" layoutX="139.0" layoutY="150.0" prefHeight="25.0" prefWidth="44.0" style="-fx-background-color: #F3F6FC;">
+         <font>
+            <Font name="Poppins Light" size="12.0" />
+         </font>
+      </TextField>
+      <Button alignment="CENTER" layoutX="415.0" layoutY="75.0" mnemonicParsing="false" onAction="#btnSearchDocOnAction" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
