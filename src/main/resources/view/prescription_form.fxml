@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -91,16 +92,6 @@
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDocId" editable="false" layoutX="426.0" layoutY="127.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
-         <font>
-            <Font name="Poppins Light" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtPatientId" editable="false" layoutX="149.0" layoutY="127.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
-         <font>
-            <Font name="Poppins Light" size="12.0" />
-         </font>
-      </TextField>
       <TextField fx:id="txtMedicine" layoutX="150.0" layoutY="216.0" prefHeight="25.0" prefWidth="172.0" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
@@ -162,11 +153,13 @@
             </ImageView>
          </graphic>
       </Button>
-      <Label layoutX="416.0" layoutY="93.0" text="Prescription ID  :  " textFill="#1b222d">
+      <Label layoutX="388.0" layoutY="93.0" text="Prescription ID  :  " textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblPreId" layoutX="536.0" layoutY="94.0" prefHeight="19.0" prefWidth="68.0" text="PCP#00001" />
+      <Label fx:id="lblPreId" layoutX="506.0" layoutY="94.0" prefHeight="19.0" prefWidth="90.0" text="PCP#00001" />
+      <JFXComboBox fx:id="cmbPatientId" layoutX="150.0" layoutY="127.0" prefHeight="25.0" prefWidth="172.0" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="cmbDocId" layoutX="426.0" layoutY="127.0" prefHeight="25.0" prefWidth="172.0" unFocusColor="WHITE" />
    </children>
 </AnchorPane>

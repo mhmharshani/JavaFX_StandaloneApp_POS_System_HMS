@@ -22,4 +22,5 @@ public class Prescription {
     private String duration;
     private String doctorId;
     private String patientId;
+
 }

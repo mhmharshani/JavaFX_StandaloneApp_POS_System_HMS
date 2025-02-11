@@ -62,12 +62,12 @@
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="txtSearch" layoutX="205.0" layoutY="20.0" prefHeight="28.0" prefWidth="199.0" promptText="Search" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtSearch" layoutX="205.0" layoutY="34.0" prefHeight="28.0" prefWidth="199.0" promptText="Search" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <JFXButton fx:id="btnShowAllOnAction" layoutX="446.0" layoutY="20.0" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #7A97CA;" text="Show ALL" textAlignment="CENTER" textFill="#cfdcf3">
+      <JFXButton fx:id="btnShowAllOnAction" layoutX="446.0" layoutY="34.0" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #7A97CA;" text="Show ALL" textAlignment="CENTER" textFill="#cfdcf3">
          <font>
             <Font name="Poppins Bold" size="12.0" />
          </font>
@@ -166,7 +166,7 @@
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </JFXCheckBox>
-      <Button alignment="CENTER" layoutX="602.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="28.0" prefWidth="36.0" style="-fx-background-color: #CFDCF3;">
+      <Button alignment="CENTER" layoutX="602.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="28.0" prefWidth="36.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -175,7 +175,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" layoutX="565.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="28.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
+      <Button alignment="CENTER" layoutX="565.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="28.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -184,7 +184,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" layoutX="406.0" layoutY="21.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
+      <Button alignment="CENTER" layoutX="406.0" layoutY="35.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -193,7 +193,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" layoutX="528.0" layoutY="20.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="18.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
+      <Button alignment="CENTER" layoutX="528.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="18.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>

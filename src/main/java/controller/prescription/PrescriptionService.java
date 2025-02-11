@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PrescriptionService {
 
-    boolean addPrescription(Prescription prescription);
+    boolean addPrescription(Prescription prescription) throws SQLException;
 
     boolean updatePrescription(Prescription prescription);
 
