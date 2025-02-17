@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #CFDCF3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ResourceFormController">
+<AnchorPane prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #CFDCF3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.resource.ResourceFormController">
    <children>
       <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#cfdcf3" height="387.0" layoutX="333.0" layoutY="94.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="2.0" width="301.0" />
       <Label layoutX="334.0" layoutY="70.0" text="Medical Records" textFill="#1b222d">
@@ -62,7 +62,7 @@
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="txtSearch" layoutX="205.0" layoutY="34.0" prefHeight="28.0" prefWidth="199.0" promptText="Search" style="-fx-background-color: #F3F6FC;">
+      <TextField fx:id="txtSearch" layoutX="239.0" layoutY="34.0" prefHeight="28.0" prefWidth="165.0" promptText="Search" style="-fx-background-color: #F3F6FC;">
          <font>
             <Font name="Poppins Light" size="12.0" />
          </font>

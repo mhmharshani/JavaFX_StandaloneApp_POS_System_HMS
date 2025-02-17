@@ -1,0 +1,128 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="HospitalBill" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8ebf1bc3-d1e2-4414-af30-3c4b046ef2a6">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JDBC Connection Adoptor_HMS"/>
+	<query language="SQL"><![CDATA[SELECT * FROM billing]]></query>
+	<field name="billing_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="billing_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="billing_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="billing"/>
+	</field>
+	<field name="gen_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="gen_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="gen_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="billing"/>
+	</field>
+	<field name="gen_time" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.name" value="gen_time"/>
+		<property name="com.jaspersoft.studio.field.label" value="gen_time"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="billing"/>
+	</field>
+	<field name="description" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="description"/>
+		<property name="com.jaspersoft.studio.field.label" value="description"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="billing"/>
+	</field>
+	<field name="total" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="total"/>
+		<property name="com.jaspersoft.studio.field.label" value="total"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="billing"/>
+	</field>
+	<field name="status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="status"/>
+		<property name="com.jaspersoft.studio.field.label" value="status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="billing"/>
+	</field>
+	<field name="patient_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="patient_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="patient_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="billing"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="78" splitType="Stretch">
+		<element kind="staticText" uuid="de974f13-0b4e-44c1-a0e2-ef9af048f0a1" x="267" y="7" width="190" height="27" fontSize="16.0">
+			<text><![CDATA[HEALTHLINK (PVT.) LTD.]]></text>
+		</element>
+		<element kind="staticText" uuid="6765f166-9b32-4d9e-b91b-504284d3b360" x="270" y="28" width="130" height="14">
+			<text><![CDATA[No. 25, Wakwella Rd, Galle]]></text>
+		</element>
+		<element kind="staticText" uuid="19e83c54-38d7-4823-8a22-3d048902f7be" x="61" y="60" width="140" height="14">
+			<text><![CDATA[Email: healthlink@gmail.com]]></text>
+		</element>
+		<element kind="staticText" uuid="a32d3231-abe9-4d39-9949-07b2bdb76e9c" x="210" y="60" width="140" height="14">
+			<text><![CDATA[Web: www.healthlink.com]]></text>
+		</element>
+		<element kind="staticText" uuid="298dc8ff-8e43-4d4a-a009-13098d100f41" x="269" y="42" width="90" height="14">
+			<text><![CDATA[Tel: 091-2267543]]></text>
+		</element>
+		<element kind="image" uuid="f93d2785-f4e8-4e8e-a617-4643b3148d68" x="57" y="10" width="167" height="33">
+			<expression><![CDATA["D:/Manuja/iCET/0. ICD 112 Batch/7. Standalone Application Development/Final coursework/POS System_OR24109484/05 Final Submission_Software/1. Submission/JavaFX_POS_OR24109484/src/main/resources/img/HealthLink_logo.png"]]></expression>
+		</element>
+		<element kind="textField" uuid="edd33286-ff3c-4ded-a0aa-7725f3806982" x="372" y="60" width="60" height="17" pattern="MMMMM dd, yyyy">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="textField" uuid="23761b12-bb07-4bd4-9229-84f4857ebf6d" x="432" y="61" width="100" height="13" pattern="HH:mm">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<property name="com.jaspersoft.studio.layout"/>
+	</title>
+	<pageHeader height="24" splitType="Stretch">
+		<element kind="line" uuid="b8abbe36-0177-4ab3-ba73-99f62256bf9a" x="39" y="5" width="475" height="1"/>
+	</pageHeader>
+	<columnHeader height="35" splitType="Stretch">
+		<element kind="staticText" uuid="4183470d-d85d-418d-8d4a-866ef01496ca" x="30" y="4" width="100" height="21" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[billing_id]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c0867f32-0bd6-4dd6-ac6b-ca54675c304e"/>
+		</element>
+		<element kind="staticText" uuid="adee9b73-b88c-4cbf-b86a-6bba35d7c77b" x="130" y="4" width="100" height="21" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[description]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="796608a1-d3fb-45fd-9b40-757400a738c8"/>
+		</element>
+		<element kind="staticText" uuid="537cbe70-39f1-4f73-adfe-53403dab14ac" x="230" y="4" width="100" height="21" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[total]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0c716108-4277-4f1e-b204-33b4913a0d9b"/>
+		</element>
+		<element kind="staticText" uuid="c2e6e016-e279-4fd3-b9ab-d19a1d65ddb3" x="330" y="4" width="100" height="21" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[status]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b797d0bf-272d-4a1b-906b-e1b6455f4e70"/>
+		</element>
+		<element kind="staticText" uuid="81dca864-f178-4a13-8609-bfa78755d2f4" x="431" y="4" width="100" height="21" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[patient_id]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="123751c5-e58a-49d0-a0b1-c1ab586cf2b4"/>
+		</element>
+		<element kind="line" uuid="aad477e6-27d5-4ff4-bdb3-efa71fd89cf6" x="50" y="30" width="464" height="1">
+			<pen lineStyle="Dashed"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<element kind="textField" uuid="a935bd85-ac7e-4c0b-9e76-f94a5603633a" x="30" y="3" width="100" height="21" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{billing_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c0867f32-0bd6-4dd6-ac6b-ca54675c304e"/>
+			</element>
+			<element kind="textField" uuid="9963f5e9-42f1-4ef0-9078-5c2f210ec018" x="130" y="3" width="100" height="21" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{description}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="796608a1-d3fb-45fd-9b40-757400a738c8"/>
+			</element>
+			<element kind="textField" uuid="3f259da5-2aa5-4810-b0a9-1ccae4a324ed" x="230" y="3" width="100" height="21" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{total}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0c716108-4277-4f1e-b204-33b4913a0d9b"/>
+			</element>
+			<element kind="textField" uuid="a2ee54cb-8c9a-4b40-a693-5cfabef314f9" x="330" y="3" width="100" height="21" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{status}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b797d0bf-272d-4a1b-906b-e1b6455f4e70"/>
+			</element>
+			<element kind="textField" uuid="72ca8d47-186d-4547-98c9-b5392d046910" x="431" y="3" width="100" height="21" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{patient_id}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="123751c5-e58a-49d0-a0b1-c1ab586cf2b4"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="5" splitType="Stretch"/>
+	<pageFooter height="28" splitType="Stretch">
+		<element kind="staticText" uuid="dad8701a-a0d0-49d9-93f5-516ca9080375" x="223" y="3" width="106" height="23" fontSize="14.0" hTextAlign="Center">
+			<text><![CDATA[Thank You !]]></text>
+		</element>
+	</pageFooter>
+	<summary splitType="Stretch"/>
+</jasperReport>

@@ -1,10 +1,12 @@
 package controller;
 
 import com.jfoenix.controls.JFXButton;
+import controller.dashboard.DashboardFormController;
 import db.DBConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
@@ -15,6 +17,7 @@ import model.User;
 import org.jasypt.util.text.BasicTextEncryptor;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -54,8 +57,11 @@ public class LoginFormController {
 
             if(user.getPassword().equals(txtPassword.getText())){
                 btnLogin.getScene().getWindow().hide();
-                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"))));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboard_form.fxml"));
+                Parent root = (Parent)loader.load();
+                stage.setScene(new Scene(root));
                 stage.show();
+                DashboardFormController.dashboardFormController=loader.getController();
             }
             else {
                 new Alert(Alert.AlertType.ERROR,"Check Your Password!!").show();

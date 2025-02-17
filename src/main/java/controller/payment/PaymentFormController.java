@@ -8,6 +8,7 @@ import controller.dashboard.DashboardController;
 import controller.dashboard.DashboardFormController;
 import controller.doctor.DoctorController;
 import controller.patient.PatientController;
+import db.DBConnection;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -25,6 +26,11 @@ import model.Appointment;
 import model.Billing;
 import model.Dashboard;
 import model.DoctorSession;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import util.Charge;
 
 import java.net.URL;
@@ -187,6 +193,38 @@ public class PaymentFormController implements Initializable {
 
     @FXML
     void btnPrintBillOnAction(ActionEvent event) {
+        String id=lblBillid.getText();
+        try {
+            JasperDesign design = JRXmlLoader.load("src/main/resources/report/HospitalBill.jrxml");
+
+            JRDesignQuery jrDesignQuery = new JRDesignQuery();
+            jrDesignQuery.setText("SELECT * FROM billing WHERE billing_id="+"'"+id+"'");
+            design.setQuery(jrDesignQuery);
+
+            JasperReport jasperReport = JasperCompileManager.compileReport(design);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
+            JasperExportManager.exportReportToPdfFile(jasperPrint,"hospitalBill.pdf");
+            JasperViewer.viewReport(jasperPrint,false);
+
+            lblBillid.setText(new PaymentController().nextId());
+            lblPatientId.setText("");
+            lblHosFee.setText("");
+            lblHosFee.setText("");
+            lblPatientName.setText("");
+            lblDiscounts.setText("");
+            lblTotalAmount.setText("");
+            lblBookingFee.setText("");
+            cmbDesc.setValue(null);
+
+            txtDocName.setText("");
+            cmbDocId.setValue(null);
+            txtNumber.setText("");
+            dpDate.setValue(null);
+            cmbTime.setValue(null);
+
+        } catch (JRException | SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -324,7 +362,7 @@ public class PaymentFormController implements Initializable {
             Alert alert = isDone ? (new Alert(Alert.AlertType.CONFIRMATION, "Payment Success !!")) : (new Alert(Alert.AlertType.ERROR, "Payment Failed !!"));
             alert.show();
             if (isDone){
-                lblBillid.setText(new PaymentController().nextId());
+
                 lblPatientId.setText("");
                 lblHosFee.setText("");
                 lblHosFee.setText("");

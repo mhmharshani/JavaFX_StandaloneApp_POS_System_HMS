@@ -1,4 +1,4 @@
-package controller;
+package controller.pharmacy;
 
 import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;

@@ -3,17 +3,25 @@ package controller.appointment;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
+import controller.dashboard.DashboardFormController;
 import controller.doctor.DoctorController;
 import controller.patient.PatientController;
+import controller.payment.PaymentFormController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.Appointment;
 import model.DoctorSession;
 
@@ -184,20 +192,18 @@ public class AppointmentFormController implements Initializable {
     }
 
     @FXML
-    void btnPayNowOnAction(ActionEvent event) {
+    void btnPayNowOnAction(ActionEvent event) throws IOException {
 
-        //-----------------Load Payment Form -------------------------------------------
-//        URL resource = this.getClass().getResource("/view/payments_form.fxml");
-//        assert  resource != null;
-//        Parent load = null;
-//        try {
-//            load = FXMLLoader.load(resource);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        AnchorPane loadFormContent = new DashboardFormController().getLoadFormContent();
-//        loadFormContent.getChildren().clear();
-//        loadFormContent.getChildren().add(load);
+       // -----------------Load Payment Form -------------------------------------------
+        DashboardFormController dashboardFormController= DashboardFormController.dashboardFormController;
+        URL resource = dashboardFormController.getClass().getResource("/view/payments_form.fxml");
+        assert  resource != null;
+        Parent load = FXMLLoader.load(resource);
+        AnchorPane anchorPane=dashboardFormController.getAnchorPane();
+        anchorPane.getChildren().clear();
+        anchorPane.getChildren().add(load);
+
+        //-------------------End Form-----------------------------------------------------
 
     }
 

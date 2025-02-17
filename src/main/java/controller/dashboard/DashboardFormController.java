@@ -39,12 +39,14 @@ public class DashboardFormController implements Initializable {
     @FXML
     private Label lblUserName;
 
-    @Getter
+
     @FXML
     private AnchorPane loadFormContent;
 
     @FXML
     private TextField txtSearch;
+
+    public static DashboardFormController dashboardFormController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -90,6 +92,7 @@ public class DashboardFormController implements Initializable {
 
     @FXML
     void btnAppointmentsOnAction(ActionEvent event) throws IOException {
+
         URL resource = this.getClass().getResource("/view/appointment_form.fxml");
         assert  resource != null;
         Parent load = FXMLLoader.load(resource);
@@ -228,5 +231,9 @@ public class DashboardFormController implements Initializable {
         return lblTime.getText();
     }
 
+    public AnchorPane getAnchorPane(){
+        System.out.println("Anchorpane : "+this.loadFormContent);
+        return this.loadFormContent;
+    }
 
 }

@@ -1,4 +1,4 @@
-package controller;
+package controller.mainform_dashboard;
 
 import com.jfoenix.controls.JFXListCell;
 import javafx.event.ActionEvent;
@@ -9,7 +9,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class MainFormController {
+public class MainDisplayFormController {
 
     @FXML
     private CheckBox checkTask1;
