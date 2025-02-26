@@ -1,6 +1,7 @@
 package controller.statistics;
 
 import controller.doctor.DoctorController;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,14 +9,12 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
 import model.Doctor;
-
 import java.net.URL;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
-
 
 public class StatisticsFormController implements Initializable {
 
@@ -32,6 +31,9 @@ public class StatisticsFormController implements Initializable {
     private ComboBox cmbDurationSales;
 
     @FXML
+    private ComboBox cmbReportType;
+
+    @FXML
     private LineChart lchartExpenditure;
 
     @FXML
@@ -44,37 +46,35 @@ public class StatisticsFormController implements Initializable {
     private LineChart lchartProfit;
 
     @FXML
-    private TextField txtSearch;
-
-    @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnEditOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnRefreshOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnSearchOnAction(ActionEvent event) {
+    void btnGenerateReportOnAction(ActionEvent event) {
 
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadTimePeriod();
+        loadReportType();
+
         plotPhysicianLoadGraph();
 
     }
 
     private void loadTimePeriod(){
-        cmbDurationPhysician.setItems(new StatisticsController().gettimeperiod());
+        ObservableList timePeriod = new StatisticsController().getTimePeriod();
+        cmbDurationPhysician.setItems(timePeriod);
+        cmbDurationPatient.setItems(timePeriod);
+        cmbDurationSales.setItems(timePeriod);
+    }
+
+    private void loadReportType(){
+        cmbReportType.setItems(new StatisticsController().getReportType());
+    }
+
+    private String currentDate(){
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        String format = dateFormat.format(date);
+        return format;
     }
 
     private void plotPhysicianLoadGraph(){
@@ -119,6 +119,8 @@ public class StatisticsFormController implements Initializable {
             }
         });
         bchartPhysician.getData().addAll(series1);
-
     }
+    
+
+
 }
