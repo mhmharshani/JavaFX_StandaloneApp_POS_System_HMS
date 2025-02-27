@@ -1,0 +1,5 @@
+package util;
+
+public enum DaoType {
+    PATIENT,DOCTOR,EMPLOYEE,APPOINTMENT,BILLING,PRESCRIPTION,ROOM,CHART
+}

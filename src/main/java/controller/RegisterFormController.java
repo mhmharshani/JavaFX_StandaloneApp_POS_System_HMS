@@ -11,7 +11,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.User;
+import dto.User;
 import org.jasypt.util.text.BasicTextEncryptor;
 
 import java.io.IOException;

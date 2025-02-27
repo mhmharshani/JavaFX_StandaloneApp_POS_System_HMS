@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #CFDCF3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.payment.PaymentFormController">
+<AnchorPane prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #CFDCF3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PaymentFormController">
    <children>
       <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#cfdcf3" height="117.0" layoutX="29.0" layoutY="364.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="2.0" width="594.0" />
       <Label alignment="CENTER" layoutX="22.0" layoutY="14.0" prefHeight="17.0" prefWidth="72.0" style="-fx-background-color: #7A97CA;" text="Payment &gt;" textAlignment="CENTER" textFill="#cfdcf3">

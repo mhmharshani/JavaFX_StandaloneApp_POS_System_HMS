@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #CFDCF3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.resource.ResourceFormController">
+<AnchorPane prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #CFDCF3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ResourceFormController">
    <children>
       <Rectangle arcHeight="33.0" arcWidth="33.0" fill="#cfdcf3" height="387.0" layoutX="333.0" layoutY="94.0" stroke="#8857f2" strokeType="INSIDE" strokeWidth="2.0" width="301.0" />
       <Label layoutX="334.0" layoutY="70.0" text="Medical Records" textFill="#1b222d">
@@ -35,12 +35,7 @@
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPatientId" editable="false" layoutX="140.0" layoutY="117.0" prefHeight="25.0" prefWidth="165.0" style="-fx-background-color: #F3F6FC;">
-         <font>
-            <Font name="Poppins Light" size="12.0" />
-         </font>
-      </TextField>
-      <Label layoutX="34.0" layoutY="226.0" text="ROOM ID" textFill="#1b222d">
+      <Label layoutX="33.0" layoutY="310.0" text="ROOM ID" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
@@ -62,12 +57,7 @@
             <Font name="Poppins Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TextField fx:id="txtSearch" layoutX="239.0" layoutY="34.0" prefHeight="28.0" prefWidth="165.0" promptText="Search" style="-fx-background-color: #F3F6FC;">
-         <font>
-            <Font name="Poppins Light" size="12.0" />
-         </font>
-      </TextField>
-      <JFXButton fx:id="btnShowAllOnAction" layoutX="446.0" layoutY="34.0" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #7A97CA;" text="Show ALL" textAlignment="CENTER" textFill="#cfdcf3">
+      <JFXButton layoutX="197.0" layoutY="65.0" onAction="#btnShowAllOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #7A97CA;" text="Show ALL" textAlignment="CENTER" textFill="#cfdcf3">
          <font>
             <Font name="Poppins Bold" size="12.0" />
          </font>
@@ -82,7 +72,7 @@
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnSaveOnAction" layoutX="534.0" layoutY="304.0" prefHeight="28.0" prefWidth="88.0" style="-fx-background-color: #7DD4AC;" text="SAVE" textFill="#1b222d">
+      <JFXButton layoutX="534.0" layoutY="304.0" onAction="#btnSaveOnAction" prefHeight="28.0" prefWidth="88.0" style="-fx-background-color: #7DD4AC;" text="SAVE" textFill="#1b222d">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -103,7 +93,7 @@
             <TableColumn fx:id="colCapacity" prefWidth="55.0" text="Capacity" />
             <TableColumn minWidth="0.0" prefWidth="0.0" text="Availability" />
             <TableColumn fx:id="colAvailability" prefWidth="74.0" text="Availability" />
-            <TableColumn fx:id="colPId" prefWidth="63.0" text="Patient ID" />
+            <TableColumn fx:id="colPatientId" prefWidth="63.0" text="Patient ID" />
         </columns>
       </TableView>
       <TableView fx:id="tblMedicalRecord" layoutX="342.0" layoutY="346.0" prefHeight="116.0" prefWidth="282.0" style="-fx-background-color: #F3F6FC;">
@@ -115,19 +105,19 @@
             <TableColumn fx:id="colPId" prefWidth="62.0" text="Patient ID" />
          </columns>
       </TableView>
-      <JFXComboBox fx:id="cmbRoomId" layoutX="139.0" layoutY="218.0" prefHeight="25.0" prefWidth="165.0" unFocusColor="WHITE" />
-      <Label layoutX="32.0" layoutY="269.0" text="Capacity" textFill="#1b222d">
+      <JFXComboBox fx:id="cmbRoomId" layoutX="102.0" layoutY="306.0" prefHeight="25.0" prefWidth="97.0" unFocusColor="WHITE" />
+      <Label layoutX="31.0" layoutY="229.0" text="Capacity" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="cmbCapacity" layoutX="140.0" layoutY="261.0" prefHeight="25.0" prefWidth="165.0" unFocusColor="WHITE" />
-      <Label layoutX="346.0" layoutY="136.0" text="Patient ID" textFill="#1b222d">
+      <JFXComboBox fx:id="cmbCapacity" layoutX="139.0" layoutY="221.0" prefHeight="25.0" prefWidth="165.0" unFocusColor="WHITE" />
+      <Label layoutX="346.0" layoutY="141.0" text="Patient ID" textFill="#1b222d">
          <font>
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </Label>
-      <JFXComboBox fx:id="cmbPId" layoutX="432.0" layoutY="132.0" prefHeight="25.0" prefWidth="190.0" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="cmbPId" layoutX="432.0" layoutY="137.0" prefHeight="25.0" prefWidth="190.0" unFocusColor="WHITE" />
       <DatePicker fx:id="dpDate" layoutX="430.0" layoutY="177.0" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: #F3F6FC; -fx-border-color: none;" />
       <Label layoutX="346.0" layoutY="224.0" text="Diagnosis" textFill="#1b222d">
          <font>
@@ -149,7 +139,7 @@
             <Font name="Poppins Light" size="12.0" />
          </font>
       </TextField>
-      <JFXButton fx:id="btnSearchOnAction" layoutX="426.0" layoutY="304.0" prefHeight="28.0" prefWidth="102.0" style="-fx-background-color: #7DD4AC;" text="SEARCH" textFill="#1b222d">
+      <JFXButton layoutX="426.0" layoutY="304.0" onAction="#btnSearchRecordOnAction" prefHeight="28.0" prefWidth="102.0" style="-fx-background-color: #7DD4AC;" text="SEARCH" textFill="#1b222d">
          <graphic>
             <ImageView fitHeight="20.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -166,7 +156,7 @@
             <Font name="Poppins Regular" size="12.0" />
          </font>
       </JFXCheckBox>
-      <Button alignment="CENTER" layoutX="602.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="28.0" prefWidth="36.0" style="-fx-background-color: #CFDCF3;">
+      <Button alignment="CENTER" layoutX="280.0" layoutY="65.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="28.0" prefWidth="36.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -175,32 +165,42 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" layoutX="565.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnRefreshOnAction" prefHeight="28.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
+      <JFXButton layoutX="172.0" layoutY="263.0" onAction="#btnSearchRoomOnAction" prefHeight="28.0" prefWidth="133.0" style="-fx-background-color: #7DD4AC;" text="SEARCH ROOM" textFill="#1b222d">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/icon-searchLight.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Poppins Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="cmbPatientId" layoutX="143.0" layoutY="116.0" prefHeight="25.0" prefWidth="165.0" unFocusColor="WHITE" />
+      <JFXButton layoutX="512.0" layoutY="65.0" onAction="#btnShowAllRecordOnAction" prefHeight="28.0" prefWidth="80.0" style="-fx-background-color: #7A97CA;" text="Show ALL" textAlignment="CENTER" textFill="#cfdcf3">
+         <font>
+            <Font name="Poppins Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Button alignment="CENTER" layoutX="595.0" layoutY="65.0" mnemonicParsing="false" onAction="#btnDeleteRecordOnAction" prefHeight="28.0" prefWidth="36.0" style="-fx-background-color: #CFDCF3;">
          <graphic>
             <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/icon-refresh.png" />
+                  <Image url="@../img/icon-delete.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button alignment="CENTER" layoutX="406.0" layoutY="35.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="17.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
-         <graphic>
-            <ImageView fitHeight="18.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/icon-search.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button alignment="CENTER" layoutX="528.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnEditOnAction" prefHeight="18.0" prefWidth="24.0" style="-fx-background-color: #CFDCF3;">
-         <graphic>
-            <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/icon-edit.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
+      <Label layoutX="346.0" layoutY="106.0" text="Record ID : " textFill="#1b222d">
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblRecordId" layoutX="413.0" layoutY="106.0" prefHeight="17.0" prefWidth="88.0" textFill="#1b222d">
+         <font>
+            <Font name="Poppins Regular" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

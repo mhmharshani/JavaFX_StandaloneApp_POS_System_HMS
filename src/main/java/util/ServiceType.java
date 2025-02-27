@@ -1,0 +1,5 @@
+package util;
+
+public enum ServiceType {
+    PATIENT,DOCTOR,EMPLOYEE,APPOINTMENT,BILLING,PRESCRIPTION,ROOM,CHART
+}
