@@ -1,8 +1,9 @@
 package service.custom;
 
 import javafx.collections.ObservableList;
+import service.SuperService;
 
-public interface StatisticsService {
+public interface StatisticsService extends SuperService {
 
     ObservableList getTimePeriod();
 

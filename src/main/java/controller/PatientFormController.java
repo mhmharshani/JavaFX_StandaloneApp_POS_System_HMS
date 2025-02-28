@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.inject.Inject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -70,11 +71,11 @@ public class PatientFormController implements Initializable {
     @FXML
     private TextField txtSearch;
 
-    PatientService patientService = ServiceFactory.getInstance().getServiceType(ServiceType.PATIENT);
+    @Inject
+    PatientService patientService;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         txtId.setText(patientService.nextId());
     }
 
@@ -146,7 +147,7 @@ public class PatientFormController implements Initializable {
     }
 
     public void loadTable(){
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colId.setCellValueFactory(new PropertyValueFactory<>("patient_id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colNIC.setCellValueFactory(new PropertyValueFactory<>("nic"));
         colAge.setCellValueFactory(new PropertyValueFactory<>("age"));
@@ -164,7 +165,7 @@ public class PatientFormController implements Initializable {
     }
 
     public void loadTable(Patient patient){
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colId.setCellValueFactory(new PropertyValueFactory<>("patient_id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colNIC.setCellValueFactory(new PropertyValueFactory<>("nic"));
         colAge.setCellValueFactory(new PropertyValueFactory<>("age"));

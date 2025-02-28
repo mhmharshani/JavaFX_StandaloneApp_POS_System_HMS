@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -77,7 +78,8 @@ public class PrescriptionFormController implements Initializable {
     @FXML
     private JFXComboBox<?> cmbPatientId;
 
-    PatientService patientService = ServiceFactory.getInstance().getServiceType(ServiceType.PATIENT);
+    @Inject
+    PatientService patientService;
     DoctorService doctorService = ServiceFactory.getInstance().getServiceType(ServiceType.DOCTOR);
     PrescriptionService prescriptionService = ServiceFactory.getInstance().getServiceType(ServiceType.PRESCRIPTION);
 

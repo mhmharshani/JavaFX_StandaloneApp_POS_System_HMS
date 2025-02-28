@@ -1,8 +1,11 @@
 package repository.custom.impl;
 
+import config.HibernateConfig;
 import db.DBConnection;
+import entity.PatientEntity;
 import javafx.scene.control.Alert;
 import dto.Patient;
+import org.hibernate.Session;
 import repository.custom.PatientDao;
 
 import java.sql.*;
@@ -12,43 +15,52 @@ import java.util.List;
 public class PatientDaoImpl implements PatientDao {
 
     @Override
-    public boolean save(Patient entity) throws SQLException {
-        String SQL = "INSERT INTO patient VALUES (?,?,?,?,?,?,?)";
-        Connection connection = DBConnection.getInstance().getConnection();
-        try {
-            connection.setAutoCommit(false);
-            PreparedStatement pstm = connection.prepareStatement(SQL);
-            pstm.setString(1, entity.getId());
-            pstm.setString(2, entity.getName());
-            pstm.setString(3, entity.getNic());
-            pstm.setString(4, entity.getAddress());
-            pstm.setString(5, entity.getGender());
-            pstm.setString(6, entity.getPhoneNo());
-            pstm.setInt(7, entity.getAge());
-            boolean isPatientAdded = pstm.executeUpdate() > 0;
-            if(isPatientAdded){
-                connection.commit();
-                return true;
-            }
-        }finally {
-            connection.setAutoCommit(true);
-        }
-        connection.rollback();
+    public boolean save(PatientEntity entity) throws SQLException {
+//        String SQL = "INSERT INTO patient VALUES (?,?,?,?,?,?,?)";
+//        Connection connection = DBConnection.getInstance().getConnection();
+//        try {
+//            connection.setAutoCommit(false);
+//            PreparedStatement pstm = connection.prepareStatement(SQL);
+//            pstm.setString(1, entity.getId());
+//            pstm.setString(2, entity.getName());
+//            pstm.setString(3, entity.getNic());
+//            pstm.setString(4, entity.getAddress());
+//            pstm.setString(5, entity.getGender());
+//            pstm.setString(6, entity.getPhoneNo());
+//            pstm.setInt(7, entity.getAge());
+//            boolean isPatientAdded = pstm.executeUpdate() > 0;
+//            if(isPatientAdded){
+//                connection.commit();
+//                return true;
+//            }
+//        }finally {
+//            connection.setAutoCommit(true);
+//        }
+//        connection.rollback();
+//        return false;
+
+        //---------------Using Hibernate to generate SQL Queries ------------------------
+        Session session = HibernateConfig.getSession();
+        session.beginTransaction();
+        session.persist(entity);
+        session.getTransaction().commit();
+        session.close();
+
+        return true;
+    }
+
+    @Override
+    public boolean update(String s, PatientEntity entity) {
         return false;
     }
 
     @Override
-    public boolean update(String s, Patient entity) {
-        return false;
-    }
-
-    @Override
-    public Patient search(String id) {
+    public PatientEntity search(String id) {
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM patient WHERE patient_id=" + "'" + id + "'");
             if(resultSet.next()) {
-                return new Patient(
+                return new PatientEntity(
                         resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
@@ -86,14 +98,14 @@ public class PatientDaoImpl implements PatientDao {
     }
 
     @Override
-    public List<Patient> getAll() {
-        ArrayList<Patient> patientArrayList = new ArrayList<>();
+    public List<PatientEntity> getAll() {
+        ArrayList<PatientEntity> patientArrayList = new ArrayList<>();
         try {
             Statement statement = DBConnection.getInstance().getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM patient");
 
             while(resultSet.next()){
-                Patient patient = new Patient(
+                PatientEntity patient = new PatientEntity(
                         resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
@@ -113,12 +125,12 @@ public class PatientDaoImpl implements PatientDao {
     }
 
     @Override
-    public Patient searchPatientByPhoneNo(String phoneNo) {
+    public PatientEntity searchPatientByPhoneNo(String phoneNo) {
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM patient WHERE phoneNo=" + "'" + phoneNo + "'");
             if(resultSet.next()) {
-                return new Patient(
+                return new PatientEntity(
                         resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
@@ -138,12 +150,12 @@ public class PatientDaoImpl implements PatientDao {
     }
 
     @Override
-    public Patient searchPatientByNIC(String nic) {
+    public PatientEntity searchPatientByNIC(String nic) {
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM patient WHERE nic=" + "'" + nic + "'");
             if(resultSet.next()) {
-                return new Patient(
+                return new PatientEntity(
                         resultSet.getString(1),
                         resultSet.getString(2),
                         resultSet.getString(3),

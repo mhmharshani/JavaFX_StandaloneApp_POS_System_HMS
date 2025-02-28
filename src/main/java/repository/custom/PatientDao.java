@@ -1,13 +1,14 @@
 package repository.custom;
 
 import dto.Patient;
+import entity.PatientEntity;
 import repository.CrudDao;
 
-public interface PatientDao extends CrudDao<Patient,String> {
+public interface PatientDao extends CrudDao<PatientEntity,String> {
 
-    Patient searchPatientByPhoneNo(String phoneNo);
+    PatientEntity searchPatientByPhoneNo(String phoneNo);
 
-    Patient searchPatientByNIC(String nic);
+    PatientEntity searchPatientByNIC(String nic);
 
 
 

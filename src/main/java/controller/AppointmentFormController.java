@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
@@ -97,7 +98,8 @@ public class AppointmentFormController implements Initializable {
     @FXML
     private TextField txtSessionId;
 
-    PatientService patientService = ServiceFactory.getInstance().getServiceType(ServiceType.PATIENT);
+    @Inject
+    PatientService patientService;
     DoctorService doctorService = ServiceFactory.getInstance().getServiceType(ServiceType.DOCTOR);
     AppointmentService appointmentService = ServiceFactory.getInstance().getServiceType(ServiceType.APPOINTMENT);
 

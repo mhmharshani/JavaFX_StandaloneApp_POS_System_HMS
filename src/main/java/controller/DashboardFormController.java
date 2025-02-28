@@ -1,6 +1,9 @@
 package controller;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import com.jfoenix.controls.JFXButton;
+import config.AppModule;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -45,6 +48,8 @@ public class DashboardFormController implements Initializable {
     private TextField txtSearch;
 
     public static DashboardFormController dashboardFormController;
+
+    Injector injector = Guice.createInjector(new AppModule());
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -91,9 +96,20 @@ public class DashboardFormController implements Initializable {
     @FXML
     void btnAppointmentsOnAction(ActionEvent event) throws IOException {
 
+//        URL resource = this.getClass().getResource("/view/appointment_form.fxml");
+//        assert  resource != null;
+//        Parent load = FXMLLoader.load(resource);
+//
+//        loadFormContent.getChildren().clear();
+//        loadFormContent.getChildren().add(load);
+
+        // Dependency Injection by Google
+
         URL resource = this.getClass().getResource("/view/appointment_form.fxml");
         assert  resource != null;
-        Parent load = FXMLLoader.load(resource);
+        FXMLLoader fxmlLoader = new FXMLLoader(resource);
+        fxmlLoader.setControllerFactory(injector::getInstance);
+        Parent load = fxmlLoader.load();
 
         loadFormContent.getChildren().clear();
         loadFormContent.getChildren().add(load);
@@ -144,12 +160,18 @@ public class DashboardFormController implements Initializable {
 
     @FXML
     public void btnPatientOnAction(ActionEvent event) throws IOException {
+
+        // Dependency Injection by Google
+
         URL resource = this.getClass().getResource("/view/patient_form.fxml");
         assert  resource != null;
-        Parent load = FXMLLoader.load(resource);
+        FXMLLoader fxmlLoader = new FXMLLoader(resource);
+        fxmlLoader.setControllerFactory(injector::getInstance);
+        Parent load = fxmlLoader.load();
 
         loadFormContent.getChildren().clear();
         loadFormContent.getChildren().add(load);
+
     }
 
     @FXML
@@ -176,7 +198,9 @@ public class DashboardFormController implements Initializable {
     void btnPrescriptionOnAction(ActionEvent event) throws IOException {
         URL resource = this.getClass().getResource("/view/prescription_form.fxml");
         assert  resource != null;
-        Parent load = FXMLLoader.load(resource);
+        FXMLLoader fxmlLoader = new FXMLLoader(resource);
+        fxmlLoader.setControllerFactory(injector::getInstance);
+        Parent load = fxmlLoader.load();
 
         loadFormContent.getChildren().clear();
         loadFormContent.getChildren().add(load);
@@ -191,7 +215,9 @@ public class DashboardFormController implements Initializable {
     void btnResourceOnAction(ActionEvent event) throws IOException {
         URL resource = this.getClass().getResource("/view/resource_form.fxml");
         assert  resource != null;
-        Parent load = FXMLLoader.load(resource);
+        FXMLLoader fxmlLoader = new FXMLLoader(resource);
+        fxmlLoader.setControllerFactory(injector::getInstance);
+        Parent load = fxmlLoader.load();
 
         loadFormContent.getChildren().clear();
         loadFormContent.getChildren().add(load);

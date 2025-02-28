@@ -1,8 +1,11 @@
 package service.custom.impl;
 
+import com.google.inject.Inject;
+import entity.PatientEntity;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import dto.Patient;
+import org.modelmapper.ModelMapper;
 import repository.DaoFactory;
 import repository.custom.PatientDao;
 import service.custom.PatientService;
@@ -14,11 +17,13 @@ import java.util.List;
 
 public class PatientServiceImpl implements PatientService {
 
-    PatientDao patientDao = DaoFactory.getInstance().getDaoType(DaoType.PATIENT);
+    @Inject
+    PatientDao patientDao;
 
     @Override
     public boolean addPatient(Patient patient) throws SQLException {
-        return patientDao.save(patient);
+        PatientEntity map = new ModelMapper().map(patient, PatientEntity.class);
+        return patientDao.save(map);
     }
 
     @Override
@@ -28,17 +33,20 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public Patient searchPatientByNIC(String nic) {
-        return patientDao.searchPatientByNIC(nic);
+        Patient map = new ModelMapper().map(patientDao.searchPatientByNIC(nic), Patient.class);
+        return map;
     }
 
     @Override
     public Patient searchPatientByPhoneNo(String phoneNo) {
-        return patientDao.searchPatientByPhoneNo(phoneNo);
+        Patient map = new ModelMapper().map(patientDao.searchPatientByPhoneNo(phoneNo), Patient.class);
+        return map;
     }
 
     @Override
     public Patient searchPatientById(String id) {
-        return patientDao.search(id);
+        Patient map = new ModelMapper().map(patientDao.search(id), Patient.class);
+        return map;
     }
 
     @Override
@@ -48,14 +56,20 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public List<Patient> getAll() {
-        return patientDao.getAll();
+        List<PatientEntity> allPatientEntity = patientDao.getAll();
+        ArrayList<Patient> allPatient = new ArrayList<>();
+        ModelMapper modelMapper = new ModelMapper();
+        allPatientEntity.forEach(patientEntity->{
+            allPatient.add(modelMapper.map(patientEntity, Patient.class));
+        });
+        return allPatient;
     }
 
     public String nextId(){
         List<Patient> all = getAll();
         ArrayList<String> patientIds = new ArrayList<>();
         all.forEach(patient ->{
-            patientIds.add((patient.getId().split("#"))[1]);
+            patientIds.add((patient.getPatient_id().split("#"))[1]);
 
         });
 
@@ -84,7 +98,7 @@ public class PatientServiceImpl implements PatientService {
         List<Patient> all = getAll();
 
         all.forEach(patient -> {
-            patientIds.add(patient.getId());
+            patientIds.add(patient.getPatient_id());
         });
         return patientIds;
     }

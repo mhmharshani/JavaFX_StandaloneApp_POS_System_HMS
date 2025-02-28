@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.inject.Inject;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 import dto.MedicalRecord;
@@ -96,7 +97,8 @@ public class ResourceFormController implements Initializable {
     private TextField txtTreatment;
 
     ResourceService resourceService = ServiceFactory.getInstance().getServiceType(ServiceType.ROOM);
-    PatientService patientService = ServiceFactory.getInstance().getServiceType(ServiceType.PATIENT);
+    @Inject
+    PatientService patientService;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
